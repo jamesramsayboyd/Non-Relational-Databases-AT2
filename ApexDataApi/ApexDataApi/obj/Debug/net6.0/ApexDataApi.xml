@@ -28,15 +28,24 @@
             <summary>
             Adds two new Players in one operation
             </summary>
-            <param name="playerList">A List Player objects serialized from the request body</param>
+            <param name="playerList">A List of Player objects serialized from the request body</param>
             <returns></returns>
         </member>
         <member name="M:BookStoreApi.Controllers.PlayersController.Update(System.String,ApexDataApi.Models.Player)">
             <summary>
             Updates a Player
             </summary>
-            <param name="id"></param>
+            <param name="name">The name of the player to be updated</param>
             <param name="updatedPlayer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreApi.Controllers.PlayersController.UpdateMultiple(System.String,System.String,System.Collections.Generic.List{ApexDataApi.Models.Player})">
+            <summary>
+            Updates multiple Players in one operation
+            </summary>
+            <param name="name1">Name of the first player to update</param>
+            <param name="name2">Name of the second player to update</param>
+            <param name="playerList"></param>
             <returns></returns>
         </member>
         <member name="M:BookStoreApi.Controllers.PlayersController.Delete(System.String)">

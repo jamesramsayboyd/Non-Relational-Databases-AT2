@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TAFE\\ICT50220 Advanced Programming\\Day 3\\1) Cluster - MCV and Non-Relational Databases\\AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {}
+    "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {}
   },
   "projects": {
-    "D:\\TAFE\\ICT50220 Advanced Programming\\Day 3\\1) Cluster - MCV and Non-Relational Databases\\AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {
+    "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TAFE\\ICT50220 Advanced Programming\\Day 3\\1) Cluster - MCV and Non-Relational Databases\\AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
+        "projectUniqueName": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
         "projectName": "ApexDataApi",
-        "projectPath": "D:\\TAFE\\ICT50220 Advanced Programming\\Day 3\\1) Cluster - MCV and Non-Relational Databases\\AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
+        "projectPath": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
         "packagesPath": "C:\\Users\\30041547\\.nuget\\packages\\",
-        "outputPath": "D:\\TAFE\\ICT50220 Advanced Programming\\Day 3\\1) Cluster - MCV and Non-Relational Databases\\AT2\\ApexDataApi\\ApexDataApi\\obj\\",
+        "outputPath": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\30041547\\AppData\\Roaming\\NuGet\\NuGet.Config",

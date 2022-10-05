@@ -56,7 +56,7 @@ public class PlayersController : ControllerBase
     /// <summary>
     /// Adds two new Players in one operation
     /// </summary>
-    /// <param name="playerList">A List Player objects serialized from the request body</param>
+    /// <param name="playerList">A List of Player objects serialized from the request body</param>
     /// <returns></returns>
     [HttpPost("Add multiple")]
     public async Task<IActionResult> PostTwo (List<Player> playerList)
@@ -69,24 +69,50 @@ public class PlayersController : ControllerBase
     /// <summary>
     /// Updates a Player
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="name">The name of the player to be updated</param>
     /// <param name="updatedPlayer"></param>
     /// <returns></returns>
-    [HttpPut("{id:length(24)}")]
-    public async Task<IActionResult> Update(string id, Player updatedPlayer)
+    [HttpPut("{name}")]
+    public async Task<IActionResult> Update(string name, Player updatedPlayer)
     {
-        var player = await _playersService.GetAsync(id);
+        var player = await _playersService.GetAsync(name);
 
         if (player is null)
-        {
             return NotFound();
-        }
 
         updatedPlayer.Id = player.Id;
 
-        await _playersService.UpdateAsync(id, updatedPlayer);
+        await _playersService.UpdateAsync(name, updatedPlayer);
 
         return NoContent();
+    }
+
+    /// <summary>
+    /// Updates multiple Players in one operation
+    /// </summary>
+    /// <param name="name1">Name of the first player to update</param>
+    /// <param name="name2">Name of the second player to update</param>
+    /// <param name="playerList"></param>
+    /// <returns></returns>
+    [HttpPut("{name1}/{name2}")]
+    public async Task<IActionResult> UpdateMultiple(string name1, string name2, List<Player> playerList)
+    {
+        var player1 = await _playersService.GetAsync(name1);
+
+        if (player1 is null)
+            return NotFound();
+
+        var player2 = await _playersService.GetAsync(name2);
+
+        if (player2 is null)
+            return NotFound();
+
+        await _playersService.RemoveAsync(name1);
+        await _playersService.RemoveAsync(name2);
+
+        await _playersService.CreateListAsync(playerList);
+
+        return CreatedAtAction(nameof(Get), new { id = playerList[0].Id }, playerList[0]);
     }
 
     /// <summary>
