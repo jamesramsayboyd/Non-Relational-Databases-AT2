@@ -2,24 +2,39 @@
 using ApexDataApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookStoreApi.Controllers;
+namespace ApexDataApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
 public class PlayersController : ControllerBase
 {
     private readonly PlayersService _playersService;
+    private readonly CharactersService _charactersService;
 
-    public PlayersController(PlayersService playersService) =>
+    //public PlayersController(PlayersService playersService) =>
+    //    _playersService = playersService;
+
+    public PlayersController(PlayersService playersService, CharactersService charactersService)
+    {
         _playersService = playersService;
+        _charactersService = charactersService;
+    }
 
     /// <summary>
-    /// Shows all Players
+    /// Selects all Players
     /// </summary>
     /// <returns></returns>
-    [HttpGet]
+    [HttpGet("Players")]
     public async Task<List<Player>> Get() =>
         await _playersService.GetAsync();
+
+    /// <summary>
+    /// Selects all Characters
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("Characters")]
+    public async Task<List<Character>> GetCharacters() =>
+        await _charactersService.GetAsync();
 
     /// <summary>
     /// Selects a Player by name
@@ -40,7 +55,7 @@ public class PlayersController : ControllerBase
     }
 
     /// <summary>
-    /// Adds a new Player
+    /// Inserts a Player
     /// </summary>
     /// <param name="newPlayer">The new Player object to be added</param>
     /// <returns></returns>
@@ -54,7 +69,7 @@ public class PlayersController : ControllerBase
 
 
     /// <summary>
-    /// Adds two new Players in one operation
+    /// Inserts two Players in one operation
     /// </summary>
     /// <param name="playerList">A List of Player objects serialized from the request body</param>
     /// <returns></returns>

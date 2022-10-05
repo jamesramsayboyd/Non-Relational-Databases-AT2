@@ -14,7 +14,4 @@ public class Player
 
     [BsonElement("rank")]
     public int Rank { get; set; }
-
-    [BsonElement("characters")]
-    public List<Character> Characters { get; set; } = null!;
 }

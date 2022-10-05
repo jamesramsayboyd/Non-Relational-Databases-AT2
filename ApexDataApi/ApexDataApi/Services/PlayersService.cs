@@ -24,9 +24,6 @@ public class PlayersService
     public async Task<List<Player>> GetAsync() =>
         await _playersCollection.Find(_ => true).ToListAsync();
 
-    //public async Task<Player?> GetAsyncId(string id) =>
-    //    await _playersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-
     public async Task<Player?> GetAsync(string name) =>
         await _playersCollection.Find(x => x.PlayerName == name).FirstOrDefaultAsync();
 

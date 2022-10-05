@@ -9,6 +9,7 @@ builder.Services.Configure<ApexPlayerDatabaseSettings>(
     builder.Configuration.GetSection("ApexPlayerDatabase"));
 
 builder.Services.AddSingleton<PlayersService>();
+builder.Services.AddSingleton<CharactersService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -4,34 +4,40 @@
         <name>ApexDataApi</name>
     </assembly>
     <members>
-        <member name="M:BookStoreApi.Controllers.PlayersController.Get">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Get">
             <summary>
-            Shows all Players
+            Selects all Players
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.Get(System.String)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.GetCharacters">
+            <summary>
+            Selects all Characters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Get(System.String)">
             <summary>
             Selects a Player by name
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.Post(ApexDataApi.Models.Player)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Post(ApexDataApi.Models.Player)">
             <summary>
-            Adds a new Player
+            Inserts a Player
             </summary>
             <param name="newPlayer">The new Player object to be added</param>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.PostTwo(System.Collections.Generic.List{ApexDataApi.Models.Player})">
+        <member name="M:ApexDataApi.Controllers.PlayersController.PostTwo(System.Collections.Generic.List{ApexDataApi.Models.Player})">
             <summary>
-            Adds two new Players in one operation
+            Inserts two Players in one operation
             </summary>
             <param name="playerList">A List of Player objects serialized from the request body</param>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.Update(System.String,ApexDataApi.Models.Player)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Update(System.String,ApexDataApi.Models.Player)">
             <summary>
             Updates a Player
             </summary>
@@ -39,7 +45,7 @@
             <param name="updatedPlayer"></param>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.UpdateMultiple(System.String,System.String,System.Collections.Generic.List{ApexDataApi.Models.Player})">
+        <member name="M:ApexDataApi.Controllers.PlayersController.UpdateMultiple(System.String,System.String,System.Collections.Generic.List{ApexDataApi.Models.Player})">
             <summary>
             Updates multiple Players in one operation
             </summary>
@@ -48,14 +54,14 @@
             <param name="playerList"></param>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.Delete(System.String)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Delete(System.String)">
             <summary>
             Deletes a specific player
             </summary>
             <param name="name">Name of the player to delete (case-insensitive)</param>
             <returns></returns>
         </member>
-        <member name="M:BookStoreApi.Controllers.PlayersController.Delete(System.String,System.String)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Delete(System.String,System.String)">
             <summary>
             Deletes multiple Players in one operation
             </summary>
