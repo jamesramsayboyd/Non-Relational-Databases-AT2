@@ -30,11 +30,11 @@
             <param name="newPlayer">The new Player object to be added</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.PostTwo(System.Collections.Generic.List{ApexDataApi.Models.Player})">
+        <member name="M:ApexDataApi.Controllers.PlayersController.PostTwo(System.Collections.Generic.List{ApexDataApi.Models.Character})">
             <summary>
-            Inserts two Players in one operation
+            Inserts two Characters in one operation
             </summary>
-            <param name="playerList">A List of Player objects serialized from the request body</param>
+            <param name="characterList">A List of Character objects serialized from the request body</param>
             <returns></returns>
         </member>
         <member name="M:ApexDataApi.Controllers.PlayersController.Update(System.String,ApexDataApi.Models.Player)">
@@ -45,12 +45,14 @@
             <param name="updatedPlayer"></param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.UpdateMultiple(System.String,System.String,System.Collections.Generic.List{ApexDataApi.Models.Player})">
+        <member name="M:ApexDataApi.Controllers.PlayersController.UpdateMultiple(System.String,System.String,System.String,System.String,System.Collections.Generic.List{ApexDataApi.Models.Player})">
             <summary>
             Updates multiple Players in one operation
             </summary>
             <param name="name1">Name of the first player to update</param>
+            <param name="rank1">The new ranking</param>
             <param name="name2">Name of the second player to update</param>
+            <param name="rank2">The new ranking</param>
             <param name="playerList"></param>
             <returns></returns>
         </member>

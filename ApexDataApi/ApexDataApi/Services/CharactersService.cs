@@ -23,4 +23,9 @@ public class CharactersService
 
     public async Task<List<Character>> GetAsync() =>
         await _charactersCollection.Find(_ => true).ToListAsync();
+
+    public async Task CreateListAsync(List<Character> characterList)
+    {
+        await _charactersCollection.InsertManyAsync(characterList);
+    }
 }

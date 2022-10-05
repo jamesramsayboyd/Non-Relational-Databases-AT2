@@ -69,16 +69,16 @@ public class PlayersController : ControllerBase
 
 
     /// <summary>
-    /// Inserts two Players in one operation
+    /// Inserts two Characters in one operation
     /// </summary>
-    /// <param name="playerList">A List of Player objects serialized from the request body</param>
+    /// <param name="characterList">A List of Character objects serialized from the request body</param>
     /// <returns></returns>
-    [HttpPost("Add multiple")]
-    public async Task<IActionResult> PostTwo (List<Player> playerList)
+    [HttpPost("MultipleCharacters")]
+    public async Task<IActionResult> PostTwo (List<Character> characterList)
     {
-        await _playersService.CreateListAsync(playerList);
+        await _charactersService.CreateListAsync(characterList);
 
-        return CreatedAtAction(nameof(Get), new { id = playerList[0].Id }, playerList[0]);
+        return CreatedAtAction(nameof(Get), new { id = characterList[0].Id }, characterList[0]);
     }
 
     /// <summary>
@@ -106,11 +106,13 @@ public class PlayersController : ControllerBase
     /// Updates multiple Players in one operation
     /// </summary>
     /// <param name="name1">Name of the first player to update</param>
+    /// <param name="rank1">The new ranking</param>
     /// <param name="name2">Name of the second player to update</param>
+    /// <param name="rank2">The new ranking</param>
     /// <param name="playerList"></param>
     /// <returns></returns>
-    [HttpPut("{name1}/{name2}")]
-    public async Task<IActionResult> UpdateMultiple(string name1, string name2, List<Player> playerList)
+    [HttpPut("{name1}/{rank1}/{name2}/{rank2}")]
+    public async Task<IActionResult> UpdateMultiple(string name1, string rank1, string name2, string rank2, List<Player> playerList)
     {
         var player1 = await _playersService.GetAsync(name1);
 
