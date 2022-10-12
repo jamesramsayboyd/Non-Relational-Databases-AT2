@@ -3,8 +3,19 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ApexDataApi.Models;
 
-public class Character
+public class Character : IComparable
 {
+    public Character(string characterName, int playtime)
+    {
+        CharacterName = characterName;
+        Playtime = playtime;
+    }
+    public int CompareTo(object obj)
+    {
+        Character? compare = obj as Character;
+        return Playtime.CompareTo(compare?.Playtime);
+    }
+
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }

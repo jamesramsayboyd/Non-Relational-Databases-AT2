@@ -24,8 +24,29 @@ public class CharactersService
     public async Task<List<Character>> GetAsync() =>
         await _charactersCollection.Find(_ => true).ToListAsync();
 
+    public async Task<Character?> GetAsync(string name) =>
+        await _charactersCollection.Find(x => x.CharacterName == name).FirstOrDefaultAsync();
+
+    public async Task<List<Character>> GetPlaytimeAsync()
+    {
+        List<Character> result = await _charactersCollection.Find(_ => true).ToListAsync();
+        result.Sort();
+        return result;
+    }
+
     public async Task CreateListAsync(List<Character> characterList)
     {
+        await _charactersCollection.InsertManyAsync(characterList);
+    }
+
+    public async Task RemoveAsync(string name) =>
+        await _charactersCollection.DeleteOneAsync(x => x.CharacterName.ToLower() == name.ToLower());
+
+    public async Task CreateListAsync(string name1, int playtime1, string name2, int playtime2)
+    {
+        Character character1 = new Character(name1, playtime1);
+        Character character2 = new Character(name2, playtime2);
+        List<Character> characterList = new List<Character>() {character1, character2};
         await _charactersCollection.InsertManyAsync(characterList);
     }
 }
