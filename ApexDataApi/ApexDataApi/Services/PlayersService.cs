@@ -60,11 +60,14 @@ public class PlayersService
     {
         Player updatedPlayer = new Player(id, name, rank);
         List<Player> players = await GetAsync();
-        
-        for (int i = rank; i < 10; i++)
+
+        for (int i = rank; i < players.Count; i++)
         {
-            players[i].Rank += 1;
-            //await _playersCollection.ReplaceOneAsync(players[i]);
+            if (players[i].Rank >= rank)
+            {
+                players[i].Rank += 1;
+                await _playersCollection.ReplaceOneAsync(x => x.Id == players[i].Id, players[i]);
+            }
         }
         await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
     }
