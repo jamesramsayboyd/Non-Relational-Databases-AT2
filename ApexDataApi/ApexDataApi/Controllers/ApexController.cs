@@ -61,7 +61,7 @@ public class ApexController : ControllerBase
     /// <returns></returns>
     [HttpGet("PlayersByRank")]
     public async Task<List<Player>> GetRanked() =>
-        await _playersService.GetRankedAsync();
+        await _playersService.GetRankedListAsync();
 
     /// <summary>
     /// Sorts all Characters by Playtime
@@ -111,14 +111,14 @@ public class ApexController : ControllerBase
     /// <param name="rank">The new rank</param>
     /// <returns></returns>
     [HttpPut("{name}/{rank}")]
-    public async Task<IActionResult> Update(string name, int rank, string avatar)
+    public async Task<IActionResult> Update(string name, int rank)
     {
         var player = await _playersService.GetAsync(name);
 
         if (player is null)
             return NotFound();
 
-        await _playersService.UpdateAsync(player.Id, name, rank, avatar);
+        await _playersService.UpdateAsync(player.Id, name, rank);
 
         return CreatedAtAction(nameof(Get), 0, 0);
     }    
@@ -132,7 +132,7 @@ public class ApexController : ControllerBase
     /// <param name="rank2">The new ranking</param>
     /// <returns></returns>
     [HttpPut("{name1}/{rank1}/{name2}/{rank2}")]
-    public async Task<IActionResult> UpdateMultiple(string name1, int rank1, string avatar1, string name2, int rank2, string avatar2)
+    public async Task<IActionResult> UpdateMultiple(string name1, int rank1, string name2, int rank2)
     {
         var player1 = await _playersService.GetAsync(name1);
 
@@ -144,7 +144,7 @@ public class ApexController : ControllerBase
         if (player2 is null)
             return NotFound();
 
-        await _playersService.UpdateMultipleAsync(player1.Id, name1, rank1, avatar1, player2.Id, name2, rank2, avatar2);
+        await _playersService.UpdateMultipleAsync(player1.Id, name1, rank1, player2.Id, name2, rank2);
 
         return CreatedAtAction(nameof(Get), 0, 0);
     }

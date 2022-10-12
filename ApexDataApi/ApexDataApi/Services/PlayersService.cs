@@ -25,7 +25,7 @@ public class PlayersService
     public async Task<List<Player>> GetAsync() =>
         await _playersCollection.Find(_ => true).ToListAsync();
 
-    public async Task<List<Player>> GetRankedAsync()
+    public async Task<List<Player>> GetRankedListAsync()
     {
         List<Player> result = await _playersCollection.Find(_ => true).ToListAsync();
         result.Sort();
@@ -34,6 +34,9 @@ public class PlayersService
 
     public async Task<Player?> GetAsync(string name) =>
         await _playersCollection.Find(x => x.PlayerName == name).FirstOrDefaultAsync();
+
+    public async Task<Player?> GetRank(int rank) =>
+        await _playersCollection.Find(x => x.Rank == rank).FirstOrDefaultAsync();
     #endregion GET
 
     #region POST
@@ -53,16 +56,23 @@ public class PlayersService
     #endregion POST
 
     #region PUT
-    public async Task UpdateAsync(string id, string name, int rank, string avatar)
+    public async Task UpdateAsync(string id, string name, int rank)
     {
-        Player updatedPlayer = new Player(id, name, rank, avatar);
+        Player updatedPlayer = new Player(id, name, rank);
+        List<Player> players = await GetAsync();
+        
+        for (int i = rank; i < 10; i++)
+        {
+            players[i].Rank += 1;
+            //await _playersCollection.ReplaceOneAsync(players[i]);
+        }
         await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
     }
 
-    public async Task UpdateMultipleAsync(string id1, string name1, int rank1, string avatar1, string id2, string name2, int rank2, string avatar2)
+    public async Task UpdateMultipleAsync(string id1, string name1, int rank1, string id2, string name2, int rank2)
     {
-        await UpdateAsync(id1, name1, rank1, avatar1);
-        await UpdateAsync(id2, name2, rank2, avatar2);
+        await UpdateAsync(id1, name1, rank1);
+        await UpdateAsync(id2, name2, rank2);
     }
     #endregion PUT
 

@@ -51,7 +51,7 @@
             <param name="characterList">A List of Character objects serialized from the request body</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.Update(System.String,System.Int32,System.String)">
+        <member name="M:ApexDataApi.Controllers.ApexController.Update(System.String,System.Int32)">
             <summary>
             Updates a Player's ranking
             </summary>
@@ -59,7 +59,7 @@
             <param name="rank">The new rank</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.UpdateMultiple(System.String,System.Int32,System.String,System.String,System.Int32,System.String)">
+        <member name="M:ApexDataApi.Controllers.ApexController.UpdateMultiple(System.String,System.Int32,System.String,System.Int32)">
             <summary>
             Updates multiple Players' Rankings in one operation
             </summary>

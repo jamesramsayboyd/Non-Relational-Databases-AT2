@@ -21,6 +21,13 @@ public class Player : IComparable
         Avatar = avatar;
     }
 
+    public Player(string? id, string playerName, int rank)
+    {
+        Id = id;
+        PlayerName = playerName;
+        Rank = rank;
+    }
+
     /// <summary>
     /// An overloaded constructor allowing PlayerName and Rank fields to be set
     /// </summary>
