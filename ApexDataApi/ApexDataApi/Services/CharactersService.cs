@@ -21,6 +21,7 @@ public class CharactersService
             apexPlayerDatabaseSettings.Value.CharactersCollectionName);
     }
 
+    #region GET
     public async Task<List<Character>> GetAsync() =>
         await _charactersCollection.Find(_ => true).ToListAsync();
 
@@ -33,20 +34,20 @@ public class CharactersService
         result.Sort();
         return result;
     }
+    #endregion GET
 
-    public async Task CreateListAsync(List<Character> characterList)
-    {
-        await _charactersCollection.InsertManyAsync(characterList);
-    }
-
-    public async Task RemoveAsync(string name) =>
-        await _charactersCollection.DeleteOneAsync(x => x.CharacterName.ToLower() == name.ToLower());
-
+    #region POST
     public async Task CreateListAsync(string name1, int playtime1, string name2, int playtime2)
     {
         Character character1 = new Character(name1, playtime1);
         Character character2 = new Character(name2, playtime2);
-        List<Character> characterList = new List<Character>() {character1, character2};
+        List<Character> characterList = new List<Character>() { character1, character2 };
         await _charactersCollection.InsertManyAsync(characterList);
     }
+    #endregion POST
+
+    #region DELETE
+    public async Task RemoveAsync(string name) =>
+        await _charactersCollection.DeleteOneAsync(x => x.CharacterName.ToLower() == name.ToLower());
+    #endregion DELETE
 }

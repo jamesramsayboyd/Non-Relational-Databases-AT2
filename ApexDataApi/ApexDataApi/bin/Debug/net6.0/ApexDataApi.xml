@@ -4,53 +4,54 @@
         <name>ApexDataApi</name>
     </assembly>
     <members>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Get">
+        <member name="M:ApexDataApi.Controllers.ApexController.Get">
             <summary>
             Selects all Players
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.GetRanked">
-            <summary>
-            Sorts all Players by Rank
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.GetCharacters">
+        <member name="M:ApexDataApi.Controllers.ApexController.GetCharacters">
             <summary>
             Selects all Characters
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.GetCharactersByPlaytime">
-            <summary>
-            Sorts all Characters by Playtime
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Get(System.String)">
+        <member name="M:ApexDataApi.Controllers.ApexController.Get(System.String)">
             <summary>
             Selects a Player by name
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Post(System.String,System.Int32)">
+        <member name="M:ApexDataApi.Controllers.ApexController.GetRanked">
+            <summary>
+            Sorts all Players by Rank
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.ApexController.GetCharactersByPlaytime">
+            <summary>
+            Sorts all Characters by Playtime
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.ApexController.Post(System.String,System.Int32,System.String)">
             <summary>
             Inserts a Player
             </summary>
             <param name="name">The player's name</param>
             <param name="rank">The player's rank</param>
+            <param name="avatar">A link to the player's avatar image</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.PostTwo(System.String,System.Int32,System.String,System.Int32)">
+        <member name="M:ApexDataApi.Controllers.ApexController.PostTwo(System.String,System.Int32,System.String,System.Int32)">
             <summary>
             Inserts two Characters in one operation
             </summary>
             <param name="characterList">A List of Character objects serialized from the request body</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Update(System.String,System.Int32)">
+        <member name="M:ApexDataApi.Controllers.ApexController.Update(System.String,System.Int32,System.String)">
             <summary>
             Updates a Player's ranking
             </summary>
@@ -58,25 +59,24 @@
             <param name="rank">The new rank</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.UpdateMultiple(System.String,System.String,System.String,System.String,System.Collections.Generic.List{ApexDataApi.Models.Player})">
+        <member name="M:ApexDataApi.Controllers.ApexController.UpdateMultiple(System.String,System.Int32,System.String,System.String,System.Int32,System.String)">
             <summary>
-            Updates multiple Players in one operation
+            Updates multiple Players' Rankings in one operation
             </summary>
             <param name="name1">Name of the first player to update</param>
             <param name="rank1">The new ranking</param>
             <param name="name2">Name of the second player to update</param>
             <param name="rank2">The new ranking</param>
-            <param name="playerList"></param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Delete(System.String)">
+        <member name="M:ApexDataApi.Controllers.ApexController.Delete(System.String)">
             <summary>
             Deletes a specific Character
             </summary>
             <param name="name">Name of the character to delete (case-insensitive)</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Delete(System.String,System.String)">
+        <member name="M:ApexDataApi.Controllers.ApexController.Delete(System.String,System.String)">
             <summary>
             Deletes multiple Characters in one operation
             </summary>
@@ -84,20 +84,29 @@
             <param name="name2">Name of the second character to delete</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.Int32)">
+        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.Int32,System.String)">
             <summary>
             An overloaded constructor allowing Id, PlayerName and Rank fields to be set
             </summary>
             <param name="id"></param>
             <param name="playerName"></param>
             <param name="rank"></param>
+            <param name="avatar"></param>
         </member>
-        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.Int32)">
+        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.Int32,System.String)">
             <summary>
             An overloaded constructor allowing PlayerName and Rank fields to be set
             </summary>
             <param name="name"></param>
             <param name="rank"></param>
+            <param name="avatar"></param>
+        </member>
+        <member name="M:ApexDataApi.Models.Player.CompareTo(System.Object)">
+            <summary>
+            The CompareTo function for the IComparable interface
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

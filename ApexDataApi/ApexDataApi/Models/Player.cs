@@ -5,17 +5,20 @@ namespace ApexDataApi.Models;
 
 public class Player : IComparable
 {
+    #region CONSTRUCTORS
     /// <summary>
     /// An overloaded constructor allowing Id, PlayerName and Rank fields to be set
     /// </summary>
     /// <param name="id"></param>
     /// <param name="playerName"></param>
     /// <param name="rank"></param>
-    public Player(string? id, string playerName, int rank)
+    /// <param name="avatar"></param>
+    public Player(string? id, string playerName, int rank, string avatar)
     {
         Id = id;
         PlayerName = playerName;
         Rank = rank;
+        Avatar = avatar;
     }
 
     /// <summary>
@@ -23,13 +26,21 @@ public class Player : IComparable
     /// </summary>
     /// <param name="name"></param>
     /// <param name="rank"></param>
-    public Player(string name, int rank)
+    /// <param name="avatar"></param>
+    public Player(string name, int rank, string avatar)
     {
         PlayerName = name;
         Rank = rank;
+        Avatar = avatar;
     }
+    #endregion CONSTRUCTORS
 
-    public int CompareTo(object obj)
+    /// <summary>
+    /// The CompareTo function for the IComparable interface
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public int CompareTo(object? obj)
     {
         Player? compare = obj as Player;
         return Rank.CompareTo(compare?.Rank);
@@ -44,4 +55,7 @@ public class Player : IComparable
 
     [BsonElement("rank")]
     public int Rank { get; set; }
+
+    [BsonElement("avatar")]
+    public string Avatar { get; set; }
 }
