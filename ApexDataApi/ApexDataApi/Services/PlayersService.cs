@@ -71,55 +71,71 @@ public class PlayersService
             }
         }
         await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
-
-        // update player rank:
-        // currentplayer.rank += 1
-        // all players above currentplayer.rank += 1
-        // insert updatedplayer
     }
 
-    public async Task UpdateRankAsync(string id, string name, int oldrank, int newrank)
+    public async Task UpdateRankAsync(Player currentPlayer, int newrank)
     {
-        Player updatedPlayer = new Player(id, name, newrank);
+        Player updatedPlayer = new Player(currentPlayer.Id, currentPlayer.PlayerName, currentPlayer.Avatar, newrank, false);
+        if (updatedPlayer.Rank == 1)
+        {
+            updatedPlayer.Topranked = true;
+        }
         List<Player> players = await GetAsync();
         players.Sort();
 
-        if (newrank < oldrank)
+        if (newrank < currentPlayer.Rank)
         {
             for (int i = 0; i < players.Count; i++)
             {
                 if (players[i].Rank >= newrank)
                 {
-                    if (players[i].Rank < players.Count)
+                    if (players[i].Rank < currentPlayer.Rank)
+                    //if (players[i].Rank < players.Count)
                     {
                         players[i].Rank += 1;
+                        if (players[i].Rank == 1)
+                        {
+                            players[i].Topranked = true;
+                        }
+                        else
+                        {
+                            players[i].Topranked = false;
+                        }
                         await _playersCollection.ReplaceOneAsync(x => x.Id == players[i].Id, players[i]);
                     }                    
                 }
             }
-            await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
+            await _playersCollection.ReplaceOneAsync(x => x.Id == currentPlayer.Id, updatedPlayer);
         }
-        else if (newrank > oldrank)
+        else if (newrank > currentPlayer.Rank)
         {
             for (int i = 0; i < players.Count; i++)
             {
                 if (players[i].Rank <= newrank)
                 {
-                    if (players[i].Rank > 0)
+                    if (players[i].Rank > 1)
                     {
                         players[i].Rank -= 1;
+                        if (players[i].Rank == 1)
+                        {
+                            players[i].Topranked = true;
+                        }
+                        else
+                        {
+                            players[i].Topranked = false;
+                        }
                         await _playersCollection.ReplaceOneAsync(x => x.Id == players[i].Id, players[i]);
                     }                    
                 }                    
             }
-            await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
+            await _playersCollection.ReplaceOneAsync(x => x.Id == currentPlayer.Id, updatedPlayer);
         }
     }
 
-    public async Task UpdateMultipleAsync(string id1, string name1, int rank1, string id2, string name2, int rank2)
+    public async Task UpdateMultipleRanksAsync(Player player1, int newrank1, Player player2, int newrank2)
     {
-        await UpdateAsync(id1, name1, rank1);
-        await UpdateAsync(id2, name2, rank2);
+        await UpdateRankAsync(player1, newrank1);
+        await UpdateRankAsync(player2, newrank2);
     }
     #endregion PUT
 

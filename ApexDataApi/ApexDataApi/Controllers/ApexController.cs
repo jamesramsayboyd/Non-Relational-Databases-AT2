@@ -118,8 +118,7 @@ public class ApexController : ControllerBase
         if (player is null)
             return NotFound();
 
-        //await _playersService.UpdateAsync(player.Id, name, rank);
-        await _playersService.UpdateRankAsync(player.Id, name, player.Rank, rank);
+        await _playersService.UpdateRankAsync(player, rank);
 
         return CreatedAtAction(nameof(Get), 0, 0);
     }    
@@ -145,7 +144,7 @@ public class ApexController : ControllerBase
         if (player2 is null)
             return NotFound();
 
-        await _playersService.UpdateMultipleAsync(player1.Id, name1, rank1, player2.Id, name2, rank2);
+        await _playersService.UpdateMultipleRanksAsync(player1, rank1, player2, rank2);
 
         return CreatedAtAction(nameof(Get), 0, 0);
     }

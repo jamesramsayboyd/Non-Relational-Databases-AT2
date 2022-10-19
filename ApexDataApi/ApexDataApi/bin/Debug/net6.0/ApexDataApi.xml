@@ -84,7 +84,7 @@
             <param name="name2">Name of the second character to delete</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.Int32,System.String)">
+        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean)">
             <summary>
             An overloaded constructor allowing Id, PlayerName and Rank fields to be set
             </summary>

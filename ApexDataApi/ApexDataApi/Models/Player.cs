@@ -13,6 +13,14 @@ public class Player : IComparable
     /// <param name="playerName"></param>
     /// <param name="rank"></param>
     /// <param name="avatar"></param>
+    public Player(string? id, string playerName, string avatar, int rank, bool topranked)
+    {
+        Id = id;
+        PlayerName = playerName;
+        Avatar = avatar;
+        Rank = rank;
+        Topranked = topranked;
+    }
     public Player(string? id, string playerName, int rank, string avatar)
     {
         Id = id;
@@ -65,4 +73,7 @@ public class Player : IComparable
 
     [BsonElement("avatar")]
     public string Avatar { get; set; }
+
+    [BsonElement("topranked")]
+    public bool Topranked { get; set; }
 }
