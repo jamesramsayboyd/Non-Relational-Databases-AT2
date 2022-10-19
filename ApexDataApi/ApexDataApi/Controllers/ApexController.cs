@@ -118,7 +118,8 @@ public class ApexController : ControllerBase
         if (player is null)
             return NotFound();
 
-        await _playersService.UpdateAsync(player.Id, name, rank);
+        //await _playersService.UpdateAsync(player.Id, name, rank);
+        await _playersService.UpdateRankAsync(player.Id, name, player.Rank, rank);
 
         return CreatedAtAction(nameof(Get), 0, 0);
     }    

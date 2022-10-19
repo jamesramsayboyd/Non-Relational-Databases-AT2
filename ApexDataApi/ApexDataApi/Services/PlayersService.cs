@@ -60,8 +60,9 @@ public class PlayersService
     {
         Player updatedPlayer = new Player(id, name, rank);
         List<Player> players = await GetAsync();
+        players.Sort();
 
-        for (int i = rank; i < players.Count; i++)
+        for (int i = 0; i < players.Count; i++)
         {
             if (players[i].Rank >= rank)
             {
@@ -70,6 +71,49 @@ public class PlayersService
             }
         }
         await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
+
+        // update player rank:
+        // currentplayer.rank += 1
+        // all players above currentplayer.rank += 1
+        // insert updatedplayer
+    }
+
+    public async Task UpdateRankAsync(string id, string name, int oldrank, int newrank)
+    {
+        Player updatedPlayer = new Player(id, name, newrank);
+        List<Player> players = await GetAsync();
+        players.Sort();
+
+        if (newrank < oldrank)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].Rank >= newrank)
+                {
+                    if (players[i].Rank < players.Count)
+                    {
+                        players[i].Rank += 1;
+                        await _playersCollection.ReplaceOneAsync(x => x.Id == players[i].Id, players[i]);
+                    }                    
+                }
+            }
+            await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
+        }
+        else if (newrank > oldrank)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].Rank <= newrank)
+                {
+                    if (players[i].Rank > 0)
+                    {
+                        players[i].Rank -= 1;
+                        await _playersCollection.ReplaceOneAsync(x => x.Id == players[i].Id, players[i]);
+                    }                    
+                }                    
+            }
+            await _playersCollection.ReplaceOneAsync(x => x.Id == id, updatedPlayer);
+        }
     }
 
     public async Task UpdateMultipleAsync(string id1, string name1, int rank1, string id2, string name2, int rank2)
