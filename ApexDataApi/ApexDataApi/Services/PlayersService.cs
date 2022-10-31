@@ -90,7 +90,6 @@ public class PlayersService
                 if (players[i].Rank >= newrank)
                 {
                     if (players[i].Rank < currentPlayer.Rank)
-                    //if (players[i].Rank < players.Count)
                     {
                         players[i].Rank += 1;
                         if (players[i].Rank == 1)

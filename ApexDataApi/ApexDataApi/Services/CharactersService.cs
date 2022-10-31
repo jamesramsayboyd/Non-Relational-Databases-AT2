@@ -32,6 +32,7 @@ public class CharactersService
     {
         List<Character> result = await _charactersCollection.Find(_ => true).ToListAsync();
         result.Sort();
+        result.Reverse();
         return result;
     }
     #endregion GET
