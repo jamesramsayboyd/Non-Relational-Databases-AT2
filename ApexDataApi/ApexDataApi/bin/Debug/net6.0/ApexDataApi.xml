@@ -4,38 +4,60 @@
         <name>ApexDataApi</name>
     </assembly>
     <members>
-        <member name="M:ApexDataApi.Controllers.ApexController.Get">
-            <summary>
-            Selects all Players
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.GetCharacters">
+        <member name="M:ApexDataApi.Controllers.CharactersController.GetCharacters">
             <summary>
             Selects all Characters
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.Get(System.String)">
+        <member name="M:ApexDataApi.Controllers.CharactersController.GetCharactersByPlaytime">
+            <summary>
+            Sorts all Characters by Playtime
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.PostTwo(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Inserts two Characters in one operation
+            </summary>
+            <param name="characterList">A List of Character objects serialized from the request body</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Delete(System.String)">
+            <summary>
+            Deletes a specific Character
+            </summary>
+            <param name="name">Name of the character to delete (case-insensitive)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Delete(System.String,System.String)">
+            <summary>
+            Deletes multiple Characters in one operation
+            </summary>
+            <param name="name1">Name of the first character to delete</param>
+            <param name="name2">Name of the second character to delete</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Get">
+            <summary>
+            Selects all Players
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Get(System.String)">
             <summary>
             Selects a Player by name
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.GetRanked">
+        <member name="M:ApexDataApi.Controllers.PlayersController.GetRanked">
             <summary>
             Sorts all Players by Rank
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.GetCharactersByPlaytime">
-            <summary>
-            Sorts all Characters by Playtime
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.Post(System.String,System.Int32,System.String)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Post(System.String,System.Int32,System.String)">
             <summary>
             Inserts a Player
             </summary>
@@ -44,14 +66,7 @@
             <param name="avatar">A link to the player's avatar image</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.PostTwo(System.String,System.Int32,System.String,System.Int32)">
-            <summary>
-            Inserts two Characters in one operation
-            </summary>
-            <param name="characterList">A List of Character objects serialized from the request body</param>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.Update(System.String,System.Int32)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.Update(System.String,System.Int32)">
             <summary>
             Updates a Player's ranking
             </summary>
@@ -59,7 +74,7 @@
             <param name="rank">The new rank</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.UpdateMultiple(System.String,System.Int32,System.String,System.Int32)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.UpdateMultiple(System.String,System.Int32,System.String,System.Int32)">
             <summary>
             Updates multiple Players' Rankings in one operation
             </summary>
@@ -67,21 +82,6 @@
             <param name="rank1">The new ranking</param>
             <param name="name2">Name of the second player to update</param>
             <param name="rank2">The new ranking</param>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.Delete(System.String)">
-            <summary>
-            Deletes a specific Character
-            </summary>
-            <param name="name">Name of the character to delete (case-insensitive)</param>
-            <returns></returns>
-        </member>
-        <member name="M:ApexDataApi.Controllers.ApexController.Delete(System.String,System.String)">
-            <summary>
-            Deletes multiple Characters in one operation
-            </summary>
-            <param name="name1">Name of the first character to delete</param>
-            <param name="name2">Name of the second character to delete</param>
             <returns></returns>
         </member>
         <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean)">

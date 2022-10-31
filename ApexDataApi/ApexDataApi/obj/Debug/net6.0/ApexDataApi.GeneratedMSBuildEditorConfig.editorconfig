@@ -14,3 +14,47 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Characters/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Characters/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Characters/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Characters/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Characters/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Players/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Players/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Players/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Players/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Players/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/30041547/Documents/GitHub/Non-Relational-Databases-AT2/ApexDataApi/ApexDataApi/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

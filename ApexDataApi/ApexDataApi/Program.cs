@@ -3,8 +3,13 @@ using ApexDataApi.Models;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ApexDataApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApexDataApiContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ApexDataApiContext") ?? throw new InvalidOperationException("Connection string 'ApexDataApiContext' not found.")));
 
 // Add services to the container.
 builder.Services.Configure<ApexPlayerDatabaseSettings>(
