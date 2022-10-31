@@ -105,11 +105,11 @@ namespace ApexDataApi.Controllers
         #endregion DELETE CHARACTERS
 
         #region default stuff
-        //// GET: Characters
-        //public async Task<IActionResult> Index()
-        //{
-        //      return View(await _context.Character.ToListAsync());
-        //}
+        // GET: Characters
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Character.ToListAsync());
+        }
 
         //// GET: Characters/Details/5
         //public async Task<IActionResult> Details(string id)
@@ -234,7 +234,7 @@ namespace ApexDataApi.Controllers
         //    {
         //        _context.Character.Remove(character);
         //    }
-            
+
         //    await _context.SaveChangesAsync();
         //    return RedirectToAction(nameof(Index));
         //}
