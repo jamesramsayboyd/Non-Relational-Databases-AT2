@@ -329,3 +329,7 @@ C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\Apex
 C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\obj\Debug\net6.0\ApexDataApi.RazorAssemblyInfo.cache
 C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\obj\Debug\net6.0\ApexDataApi.RazorAssemblyInfo.cs
+C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\30041547\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
