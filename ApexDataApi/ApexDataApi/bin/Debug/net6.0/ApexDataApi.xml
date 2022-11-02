@@ -86,12 +86,13 @@
         </member>
         <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean)">
             <summary>
-            An overloaded constructor allowing Id, PlayerName and Rank fields to be set
+            An overloaded constructor allowing all fields to be set
             </summary>
             <param name="id"></param>
             <param name="playerName"></param>
             <param name="rank"></param>
             <param name="avatar"></param>
+            <param name="topranked"></param>
         </member>
         <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.Int32,System.String)">
             <summary>

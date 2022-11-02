@@ -7,12 +7,13 @@ public class Player : IComparable
 {
     #region CONSTRUCTORS
     /// <summary>
-    /// An overloaded constructor allowing Id, PlayerName and Rank fields to be set
+    /// An overloaded constructor allowing all fields to be set
     /// </summary>
     /// <param name="id"></param>
     /// <param name="playerName"></param>
     /// <param name="rank"></param>
     /// <param name="avatar"></param>
+    /// <param name="topranked"></param>
     public Player(string? id, string playerName, string avatar, int rank, bool topranked)
     {
         Id = id;

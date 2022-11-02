@@ -1,1 +1,44 @@
-﻿<h1>APEX DATABASE HOMEPAGE</h1>
+﻿@model IEnumerable<ApexDataApi.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>APEX DATABASE</h1>
+
+<table class="table">
+    <thead>
+        <tr>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <h3>View Players</h3>
+        </tr>
+        <tr>
+            <h3>View Characters</h3>
+        </tr>
+        @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avatar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topranked)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }*@
+    </tbody>
+</table>
