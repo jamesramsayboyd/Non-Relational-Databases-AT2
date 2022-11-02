@@ -2,11 +2,21 @@
 
 namespace ApexDataApi.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        [HttpGet("Home"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
+        public string Index()
         {
-            return View();
+            return "Success";
         }
+
+        //[Route("index")]
+        //[HttpGet("Index")]
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
     }
 }

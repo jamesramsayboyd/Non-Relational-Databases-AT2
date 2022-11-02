@@ -27,25 +27,25 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
         $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 
-    var securityScheme = new OpenApiSecurityScheme
-    {
-        Name = "JWT Authentication",
-        Description = "Enter JWT Bearer token **_only_**",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        Reference = new OpenApiReference
-        {
-            Id = JwtBearerDefaults.AuthenticationScheme,
-            Type = ReferenceType.SecurityScheme
-        }
-    };
-    options.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        { securityScheme, new string[] { }}
-    });
+    //var securityScheme = new OpenApiSecurityScheme
+    //{
+    //    Name = "JWT Authentication",
+    //    Description = "Enter JWT Bearer token **_only_**",
+    //    In = ParameterLocation.Header,
+    //    Type = SecuritySchemeType.Http,
+    //    Scheme = "bearer",
+    //    BearerFormat = "JWT",
+    //    Reference = new OpenApiReference
+    //    {
+    //        Id = JwtBearerDefaults.AuthenticationScheme,
+    //        Type = ReferenceType.SecurityScheme
+    //    }
+    //};
+    //options.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
+    //options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    //{
+    //    { securityScheme, new string[] { }}
+    //});
 
     var basicSecurityScheme = new OpenApiSecurityScheme
     {
@@ -68,6 +68,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//app.UseDefaultFiles();
+//app.UseStaticFiles();
+//app.UseMvc(routes =>
+//{
+//    routes.MapRoute(
+//        name: "default",
+//        template: "{controller=Home}/{action=Index}/{id?}");
+//});
 
 app.UseHttpsRedirection();
 

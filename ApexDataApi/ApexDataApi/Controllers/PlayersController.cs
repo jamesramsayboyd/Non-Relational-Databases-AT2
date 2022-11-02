@@ -163,10 +163,10 @@ namespace ApexDataApi.Controllers
     #endregion default stuffnamespace ApexDataApi.Controllers;
 
     [ApiController]
-    //[Route("api/[controller]")]
+    [Route("api/[controller]")]
     public class PlayersController : Controller
     {
-        private readonly ApexDataApiContext _context;
+        //private readonly ApexDataApiContext _context;
         private readonly PlayersService _playersService;
 
         public PlayersController(PlayersService playersService)
