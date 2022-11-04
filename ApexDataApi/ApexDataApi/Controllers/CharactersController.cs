@@ -22,6 +22,16 @@ namespace ApexDataApi.Controllers
             _charactersService = charactersService;
         }
 
+        #region FRONT END
+        //GET: Players
+        [HttpGet("CharacterIndex"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> Index()
+        {
+            //return View(await _context.Player.ToListAsync());
+            return View(await _charactersService.GetAsync());
+        }
+        #endregion FRONT END
+
         #region SELECT ALL CHARACTERS
         /// <summary>
         /// Selects all Characters
@@ -106,10 +116,10 @@ namespace ApexDataApi.Controllers
 
         #region default stuff
         // GET: Characters
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Character.ToListAsync());
-        }
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Character.ToListAsync());
+        //}
 
         //// GET: Characters/Details/5
         //public async Task<IActionResult> Details(string id)

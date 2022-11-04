@@ -13,10 +13,14 @@
     </thead>
     <tbody>
         <tr>
-            <h3>View Players</h3>
+            <h3>
+                @Html.ActionLink("View Players", "Index", "Players")<br />
+            </h3>
         </tr>
         <tr>
-            <h3>View Characters</h3>
+            <h3>
+                @Html.ActionLink("View Characters", "Index", "Characters")<br />
+            </h3>
         </tr>
         @*@foreach (var item in Model)
         {
