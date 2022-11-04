@@ -67,11 +67,19 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(); 
+    //app.UseSwaggerUI(c =>
+    //{
+    //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apex Data API");
+    //    c.RoutePrefix = "";
+    //});
+
+    // *** COMMENT THIS OUT IF IT DOESN'T WORK ***
+    app.UseRouting();
 }
 
-//app.UseDefaultFiles();
-//app.UseStaticFiles();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 //app.UseMvc(routes =>
 //{
 //    routes.MapRoute(

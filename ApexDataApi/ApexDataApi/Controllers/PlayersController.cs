@@ -202,27 +202,28 @@ namespace ApexDataApi.Controllers
         //}
 
         // GET: Players/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //[HttpGet("Player"), Route("create"), ApiExplorerSettings(IgnoreApi = true)]
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Players/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PlayerName,Rank,Avatar,Topranked")] Player player)
-        {
-            if (ModelState.IsValid)
-            {
-                await _playersService.CreateAsync(player);
-                //_context.Add(player);
-                //await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(player);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("Id,PlayerName,Rank,Avatar,Topranked")] Player player)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        await _playersService.CreateAsync(player);
+        //        //_context.Add(player);
+        //        //await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(player);
+        //}
 
         //// GET: Players/Edit/5
         //public async Task<IActionResult> Edit(string id)

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "ApexDataApi": {
+    "API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -19,7 +19,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "IIS Express": {
+    "Front End": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       //"launchUrl": "swagger",
@@ -27,6 +27,15 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    }//,
+    //"IIS Express": {
+    //  "commandName": "IISExpress",
+    //  "launchBrowser": true,
+    //  //"launchUrl": "swagger",
+    //  "launchUrl": "api/home/index",
+    //  "environmentVariables": {
+    //    "ASPNETCORE_ENVIRONMENT": "Development"
+    //  }
     }
   }
 }
