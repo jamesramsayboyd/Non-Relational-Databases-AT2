@@ -166,7 +166,6 @@ namespace ApexDataApi.Controllers
     [Route("api/[controller]")]
     public class PlayersController : Controller
     {
-        //private readonly ApexDataApiContext _context;
         private readonly PlayersService _playersService;
 
         public PlayersController(PlayersService playersService)
@@ -174,16 +173,33 @@ namespace ApexDataApi.Controllers
             _playersService = playersService;
         }
 
-        #region Front End
-        //GET: Players
-        [HttpGet("PlayerIndex"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<IActionResult> Index()
+        #region FRONT END
+        // Show list of all players
+        [HttpGet("Admin"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> IndexAdmin()
         {
-            //return View(await _context.Player.ToListAsync());
             return View(await _playersService.GetAsync());
         }
 
-        //// GET: Players/Details/5
+        [HttpGet("Index"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> Index()
+        {
+            return View(await _playersService.GetAsync());
+        }
+
+        // Show a single player's details
+        [HttpGet("PlayerDetails"), Route("details"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> Details(string id)
+        {
+            var player = await _playersService.GetAsyncId(id);
+
+            if (player is null)
+            {
+                return NotFound();
+            }
+
+            return View(player);
+        }
         //public async Task<IActionResult> Details(string id)
         //{
         //    if (id == null || _context.Player == null)
@@ -201,6 +217,23 @@ namespace ApexDataApi.Controllers
         //    return View(player);
         //}
 
+        // Create a new player
+        [HttpGet("Player"), Route("create"), ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,PlayerName,Rank,Avatar,Topranked")] Player player)
+        {
+            if (ModelState.IsValid)
+            {
+                await _playersService.CreateAsync(player);
+            }
+            return View(player);
+        }
         // GET: Players/Create
         //[HttpGet("Player"), Route("create"), ApiExplorerSettings(IgnoreApi = true)]
         //public IActionResult Create()
@@ -317,8 +350,9 @@ namespace ApexDataApi.Controllers
         //{
         //    return _context.Player.Any(e => e.Id == id);
         //}
-        #endregion Front End
+        #endregion FRONT END
 
+        #region API
         #region SELECT PLAYERS/CHARACTERS
         /// <summary>
         /// Selects all Players
@@ -423,5 +457,6 @@ namespace ApexDataApi.Controllers
             return CreatedAtAction(nameof(Get), 0, 0);
         }
         #endregion UPDATE PLAYER RANKING
+        #endregion API
     }
 }

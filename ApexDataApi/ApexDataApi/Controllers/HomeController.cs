@@ -18,10 +18,16 @@ namespace ApexDataApi.Controllers
             return View();
         }
 
-        [HttpGet("Home"), Route("players/index"), ApiExplorerSettings(IgnoreApi = true)]
-        public ActionResult Players()
-        {
-            return RedirectToAction("Players/Index");
-        }
+        //[HttpGet("HomePublic"), Route("IndexPublic"), ApiExplorerSettings(IgnoreApi = true)]
+        //public ActionResult IndexPublic()
+        //{
+        //    return View();
+        //}
+
+        //[HttpGet("Home"), Route("players/index"), ApiExplorerSettings(IgnoreApi = true)]
+        //public ActionResult Players()
+        //{
+        //    return RedirectToAction("Players/Index");
+        //}
     }
 }

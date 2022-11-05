@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ApexDataApi.Models.Player>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*@model IEnumerable<ApexDataApi.Models.Player>*@
 
 @{
     ViewData["Title"] = "Index";
@@ -14,12 +15,14 @@
     <tbody>
         <tr>
             <h3>
-                @Html.ActionLink("View Players", "Index", "Players")<br />
+                <a asp-controller="Players" asp-action="Index">View Players</a><br />
+                <a asp-controller="Players" asp-action="IndexAdmin">View Players (Admin)</a><br />
             </h3>
         </tr>
         <tr>
             <h3>
-                @Html.ActionLink("View Characters", "Index", "Characters")<br />
+                <a asp-controller="Characters" asp-action="Index">View Characters</a><br />
+                <a asp-controller="Characters" asp-action="IndexAdmin">View Characters (Admin)</a><br />
             </h3>
         </tr>
         @*@foreach (var item in Model)

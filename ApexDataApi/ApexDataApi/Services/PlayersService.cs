@@ -32,8 +32,14 @@ public class PlayersService
         return result;
     }
 
+    public async Task<Player?> GetAsyncId(string id) =>
+        await _playersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
     public async Task<Player?> GetAsync(string name) =>
         await _playersCollection.Find(x => x.PlayerName == name).FirstOrDefaultAsync();
+
+    //public async Task<Player?> GetAsync(string id) =>
+    //    await _playersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
     public async Task<Player?> GetRank(int rank) =>
         await _playersCollection.Find(x => x.Rank == rank).FirstOrDefaultAsync();

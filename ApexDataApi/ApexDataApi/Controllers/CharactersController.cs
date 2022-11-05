@@ -13,23 +13,28 @@ namespace ApexDataApi.Controllers
 {
     public class CharactersController : Controller
     {
-        private readonly ApexDataApiContext _context;
         private readonly CharactersService _charactersService;
 
         public CharactersController(ApexDataApiContext context, CharactersService charactersService)
         {
-            _context = context;
             _charactersService = charactersService;
         }
 
         #region FRONT END
-        //GET: Players
-        [HttpGet("CharacterIndex"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<IActionResult> Index()
+        // Show list of all characters with CRUD options
+        [HttpGet("Admin"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> IndexAdmin()
         {
-            //return View(await _context.Player.ToListAsync());
             return View(await _charactersService.GetAsync());
         }
+
+        // Show list of all characters, no CRUD
+        [HttpGet("Index"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> Index()
+        {
+            return View(await _charactersService.GetAsync());
+        }
+
         #endregion FRONT END
 
         #region SELECT ALL CHARACTERS
