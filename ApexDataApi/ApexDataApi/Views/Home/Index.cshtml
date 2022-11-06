@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>APEX DATABASE</h1>
+<h1>APEX LEGENDS STATS</h1>
 
 <table class="table">
     <thead>
@@ -15,14 +15,14 @@
     <tbody>
         <tr>
             <h3>
-                <a asp-controller="Players" asp-action="Index">View Players</a><br />
-                <a asp-controller="Players" asp-action="IndexAdmin">View Players (Admin)</a><br />
+                <a asp-controller="Players" asp-action="Index">Player Leaderboard</a><br />
+                <a asp-controller="Players" asp-action="IndexAdmin">Players (Admin)</a><br />
             </h3>
         </tr>
         <tr>
             <h3>
-                <a asp-controller="Characters" asp-action="Index">View Characters</a><br />
-                <a asp-controller="Characters" asp-action="IndexAdmin">View Characters (Admin)</a><br />
+                <a asp-controller="Characters" asp-action="Index">Character Leaderboard</a><br />
+                <a asp-controller="Characters" asp-action="IndexAdmin">Characters (Admin)</a><br />
             </h3>
         </tr>
         @*@foreach (var item in Model)

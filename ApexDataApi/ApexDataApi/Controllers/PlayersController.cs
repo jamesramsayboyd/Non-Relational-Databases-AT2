@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ApexDataApi.Data;
 using ApexDataApi.Models;
 using ApexDataApi.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApexDataApi.Controllers
 {
@@ -179,12 +180,14 @@ namespace ApexDataApi.Controllers
         public async Task<IActionResult> IndexAdmin()
         {
             return View(await _playersService.GetAsync());
+            //return View(await _playersService.GetRankedListAsync());
         }
 
         [HttpGet("Index"), Route("index"), ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Index()
         {
-            return View(await _playersService.GetAsync());
+            //return View(await _playersService.GetAsync());
+            return View(await _playersService.GetRankedListAsync());
         }
 
         // Show a single player's details
@@ -358,6 +361,7 @@ namespace ApexDataApi.Controllers
         /// Selects all Players
         /// </summary>
         /// <returns></returns>
+        //[Authorize]
         [HttpGet("AllPlayers")]
         public async Task<List<Player>> Get() =>
             await _playersService.GetAsync();

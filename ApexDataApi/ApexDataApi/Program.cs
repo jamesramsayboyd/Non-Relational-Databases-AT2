@@ -28,26 +28,6 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
         $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 
-    //var securityScheme = new OpenApiSecurityScheme
-    //{
-    //    Name = "JWT Authentication",
-    //    Description = "Enter JWT Bearer token **_only_**",
-    //    In = ParameterLocation.Header,
-    //    Type = SecuritySchemeType.Http,
-    //    Scheme = "bearer",
-    //    BearerFormat = "JWT",
-    //    Reference = new OpenApiReference
-    //    {
-    //        Id = JwtBearerDefaults.AuthenticationScheme,
-    //        Type = ReferenceType.SecurityScheme
-    //    }
-    //};
-    //options.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
-    //options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    //{
-    //    { securityScheme, new string[] { }}
-    //});
-
     var basicSecurityScheme = new OpenApiSecurityScheme
     {
         Type = SecuritySchemeType.Http,
@@ -67,12 +47,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(); 
-    //app.UseSwaggerUI(c =>
-    //{
-    //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apex Data API");
-    //    c.RoutePrefix = "";
-    //});
+    app.UseSwaggerUI();
 
     // *** COMMENT THIS OUT IF IT DOESN'T WORK ***
     app.UseRouting();
@@ -80,12 +55,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
-//app.UseMvc(routes =>
-//{
-//    routes.MapRoute(
-//        name: "default",
-//        template: "{controller=Home}/{action=Index}/{id?}");
-//});
 
 app.UseHttpsRedirection();
 

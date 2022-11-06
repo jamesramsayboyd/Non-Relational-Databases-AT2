@@ -5,23 +5,26 @@
     ViewData["Title"] = "Players";
 }
 
-<h1>Players</h1>
+<h1>Apex Ranked Leaderboard</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PlayerName)
+                Player
+                @*@Html.DisplayNameFor(model => model.PlayerName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rank)
+                Rank
+                @*@Html.DisplayNameFor(model => model.Rank)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Avatar)
+                Avatar
+                @*@Html.DisplayNameFor(model => model.Avatar)*@
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Topranked)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -37,9 +40,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Avatar)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Topranked)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a>
             </td>
