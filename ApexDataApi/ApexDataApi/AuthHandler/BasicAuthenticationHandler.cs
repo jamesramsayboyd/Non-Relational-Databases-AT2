@@ -47,6 +47,7 @@ namespace ApexDataApi.AuthHandler
             catch (Exception ex)
             {
                 return AuthenticateResult.Fail($"Authentication failed: {ex.Message}");
+                //return AuthenticateResult.Fail($"Log in to perform this operation");
             }
 
             var claims = new[] {

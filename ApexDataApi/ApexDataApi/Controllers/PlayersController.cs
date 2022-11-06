@@ -361,7 +361,7 @@ namespace ApexDataApi.Controllers
         /// Selects all Players
         /// </summary>
         /// <returns></returns>
-        //[Authorize]
+        [Authorize]
         [HttpGet("AllPlayers")]
         public async Task<List<Player>> Get() =>
             await _playersService.GetAsync();
@@ -391,6 +391,7 @@ namespace ApexDataApi.Controllers
         /// Sorts all Players by Rank
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpGet("PlayersByRank")]
         public async Task<List<Player>> GetRanked() =>
             await _playersService.GetRankedListAsync();
