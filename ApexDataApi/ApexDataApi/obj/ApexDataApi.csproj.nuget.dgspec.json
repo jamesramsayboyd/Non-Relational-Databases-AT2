@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {}
+    "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {
+    "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
+        "projectUniqueName": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
         "projectName": "ApexDataApi",
-        "projectPath": "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
-        "packagesPath": "C:\\Users\\James\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\obj\\",
+        "projectPath": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\ApexDataApi.csproj",
+        "packagesPath": "C:\\Users\\30041547\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\James\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\30041547\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
