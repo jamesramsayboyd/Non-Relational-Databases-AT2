@@ -77,4 +77,16 @@ public class Player : IComparable
 
     [BsonElement("topranked")]
     public bool Topranked { get; set; }
+    
+    [BsonElement("character1")]
+    public string Character1 { get; set; } = null!;
+
+    [BsonElement("character1playtime")]
+    public int Character1Playtime { get; set; }
+
+    [BsonElement("character2")]
+    public string Character2 { get; set; } = null!;
+
+    [BsonElement("character2playtime")]
+    public int Character2Playtime { get; set; }
 }

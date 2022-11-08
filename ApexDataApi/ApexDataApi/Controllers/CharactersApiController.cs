@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ApexDataApi.Data;
+//using ApexDataApi.Data;
 using ApexDataApi.Models;
 using ApexDataApi.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -31,7 +31,7 @@ namespace ApexDataApi.Controllers
         /// <returns></returns>
         [HttpGet("AllCharacters")]
         public async Task<List<Character>> GetCharacters() =>
-            await _charactersService.GetAsync();
+            await _charactersService.GetCharacterList();
         #endregion SELECT ALL CHARACTERS
 
         #region SORT CHARACTERS
@@ -41,7 +41,7 @@ namespace ApexDataApi.Controllers
         /// <returns></returns>
         [HttpGet("CharactersByPlaytime")]
         public async Task<List<Character>> GetCharactersByPlaytime() =>
-            await _charactersService.GetPlaytimeAsync();
+            await _charactersService.GetCharacterListRanked();
         #endregion SORT CHARACTERS
 
         #region INSERT CHARACTERS

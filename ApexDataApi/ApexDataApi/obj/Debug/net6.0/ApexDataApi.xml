@@ -109,5 +109,18 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
+        <member name="M:ApexDataApi.Services.CharactersService.CalculatePlaytimeAsync(ApexDataApi.Models.Character)">
+            <summary>
+            Loops through a list of all players searching for a specific character
+            Sums the playtime of that character across all players, updates playtime variable
+            </summary>
+            <param name="character"></param>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.GetCharacterListRanked">
+            <summary>
+            Returns a list of all characters ranked in order of playtime across all players
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>
