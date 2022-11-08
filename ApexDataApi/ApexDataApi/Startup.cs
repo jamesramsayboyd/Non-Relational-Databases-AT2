@@ -80,7 +80,7 @@ namespace ApexDataApi
             #endregion
 
             services.AddAuthentication("BasicAuthentication")
-    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+    .AddScheme<AuthenticationSchemeOptions, AuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IUserService, UserService>();
         }
