@@ -20,8 +20,6 @@ public class Character : IComparable
         return Playtime.CompareTo(compare?.Playtime);
     }
 
-    //[BsonId]
-    //[BsonRepresentation(BsonType.ObjectId)]
     [BsonElement("Id")]
     public string? Id { get; set; }
 
