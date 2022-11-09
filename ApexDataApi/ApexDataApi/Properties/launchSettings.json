@@ -22,20 +22,10 @@
     "Front End": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      //"launchUrl": "swagger",
-      "launchUrl": "api/home/index",
+      "launchUrl": "frontend/home/index",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    }//,
-    //"IIS Express": {
-    //  "commandName": "IISExpress",
-    //  "launchBrowser": true,
-    //  //"launchUrl": "swagger",
-    //  "launchUrl": "api/home/index",
-    //  "environmentVariables": {
-    //    "ASPNETCORE_ENVIRONMENT": "Development"
-    //  }
     }
   }
 }

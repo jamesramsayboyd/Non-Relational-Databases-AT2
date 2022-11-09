@@ -1,29 +1,28 @@
-﻿@*@model IEnumerable<ApexDataApi.Models.Player>*@
-@model ApexDataApi.Models.Player
+﻿@model ApexDataApi.Models.Player
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create2";
 }
 
-<h1>Create</h1>
+<h1>Create2</h1>
 
 <h4>Player</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create2">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
                 <input asp-for="Id" class="form-control" />
                 <span asp-validation-for="Id" class="text-danger"></span>
-            </div>*@
+            </div>
             <div class="form-group">
                 <label asp-for="PlayerName" class="control-label"></label>
                 <input asp-for="PlayerName" class="form-control" />
                 <span asp-validation-for="PlayerName" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label asp-for="Rank" class="control-label"></label>
                 <input asp-for="Rank" class="form-control" />
                 <span asp-validation-for="Rank" class="text-danger"></span>
@@ -37,7 +36,27 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Topranked" /> @Html.DisplayNameFor(model => model.Topranked)
                 </label>
-            </div>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Character1" class="control-label"></label>
+                <input asp-for="Character1" class="form-control" />
+                <span asp-validation-for="Character1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character1Playtime" class="control-label"></label>
+                <input asp-for="Character1Playtime" class="form-control" />
+                <span asp-validation-for="Character1Playtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character2" class="control-label"></label>
+                <input asp-for="Character2" class="form-control" />
+                <span asp-validation-for="Character2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Character2Playtime" class="control-label"></label>
+                <input asp-for="Character2Playtime" class="form-control" />
+                <span asp-validation-for="Character2Playtime" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -46,9 +65,6 @@
 </div>
 
 <div>
-    <a asp-action="IndexAdmin">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

@@ -84,7 +84,7 @@
             <param name="rank2">The new ranking</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean)">
+        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.Int32,System.String,System.Boolean)">
             <summary>
             An overloaded constructor allowing all fields to be set
             </summary>

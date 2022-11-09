@@ -31,6 +31,9 @@ public class CharactersService
     public async Task<Character?> GetAsync(string name) =>
         await _charactersCollection.Find(x => x.CharacterName == name).FirstOrDefaultAsync();
 
+    public async Task<Character?> GetAsyncId(string id) =>
+        await _charactersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
     public async Task<List<Character>> GetPlaytimeAsync()
     {
         List<Character> result = await _charactersCollection.Find(_ => true).ToListAsync();
@@ -93,6 +96,9 @@ public class CharactersService
     #endregion GET
 
     #region POST
+    public async Task CreateAsync(Character newCharacter) =>
+        await _charactersCollection.InsertOneAsync(newCharacter);
+
     public async Task CreateListAsync(string name1, int playtime1, string name2, int playtime2)
     {
         Character character1 = new Character(name1, playtime1);
@@ -102,8 +108,18 @@ public class CharactersService
     }
     #endregion POST
 
+    #region PUT
+    public async Task UpdateCharacterAsync(Character updatedCharacter)
+    {
+        await _charactersCollection.ReplaceOneAsync(x => x.Id == updatedCharacter.Id, updatedCharacter);
+    }
+    #endregion PUT
+
     #region DELETE
     public async Task RemoveAsync(string name) =>
         await _charactersCollection.DeleteOneAsync(x => x.CharacterName.ToLower() == name.ToLower());
+
+    public async Task RemoveAsync(Character character) =>
+        await _charactersCollection.DeleteOneAsync(x => x.Id == character.Id);
     #endregion DELETE
 }

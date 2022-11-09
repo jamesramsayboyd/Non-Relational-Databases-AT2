@@ -62,6 +62,10 @@ public class PlayersService
     #endregion POST
 
     #region PUT
+    public async Task UpdatePlayerAsync(Player player)
+    {
+        await _playersCollection.ReplaceOneAsync(x => x.Id == player.Id, player);
+    }
     public async Task UpdateAsync(string id, string name, int rank)
     {
         Player updatedPlayer = new Player(id, name, rank);
@@ -81,7 +85,7 @@ public class PlayersService
 
     public async Task UpdateRankAsync(Player currentPlayer, int newrank)
     {
-        Player updatedPlayer = new Player(currentPlayer.Id, currentPlayer.PlayerName, currentPlayer.Avatar, newrank, false);
+        Player updatedPlayer = new Player(currentPlayer.Id, currentPlayer.PlayerName, newrank, currentPlayer.Avatar, false);
         if (updatedPlayer.Rank == 1)
         {
             updatedPlayer.Topranked = true;
@@ -147,5 +151,8 @@ public class PlayersService
     #region DELETE
     public async Task RemoveAsync(string name) =>
         await _playersCollection.DeleteOneAsync(x => x.PlayerName.ToLower() == name.ToLower());
+
+    public async Task RemoveAsync(Player player) =>
+        await _playersCollection.DeleteOneAsync(x => x.Id == player.Id);
     #endregion DELETE
 }

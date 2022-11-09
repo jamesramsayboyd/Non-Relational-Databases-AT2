@@ -1,24 +1,9 @@
 ﻿using ApexDataApi.AuthHandler;
-//using ApexDataApi.Data;
 using ApexDataApi.Models;
 using ApexDataApi.Services;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace ApexDataApi
 {
@@ -34,9 +19,6 @@ namespace ApexDataApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApexDataApiContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("ApexDataApiContext") ?? throw new InvalidOperationException("Connection string 'ApexDataApiContext' not found.")));
-
             services.Configure<ApexPlayerDatabaseSettings>(
                 Configuration.GetSection("ApexPlayerDatabase"));
 

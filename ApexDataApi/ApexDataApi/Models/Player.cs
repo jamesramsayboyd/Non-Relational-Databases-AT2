@@ -6,6 +6,8 @@ namespace ApexDataApi.Models;
 public class Player : IComparable
 {
     #region CONSTRUCTORS
+    public Player() { }
+
     /// <summary>
     /// An overloaded constructor allowing all fields to be set
     /// </summary>
@@ -14,12 +16,12 @@ public class Player : IComparable
     /// <param name="rank"></param>
     /// <param name="avatar"></param>
     /// <param name="topranked"></param>
-    public Player(string id, string playerName, string avatar, int rank, bool topranked)
+    public Player(string id, string playerName, int rank, string avatar, bool topranked)
     {
         Id = id;
         PlayerName = playerName;
-        Avatar = avatar;
         Rank = rank;
+        Avatar = avatar;
         Topranked = topranked;
     }
     public Player(string id, string playerName, int rank, string avatar)

@@ -5,11 +5,15 @@ namespace ApexDataApi.Models;
 
 public class Character : IComparable
 {
+    #region CONSTRUCTORS
+    public Character() { }
+
     public Character(string characterName, int playtime)
     {
         CharacterName = characterName;
         Playtime = playtime;
     }
+    #endregion CONSTRUCTORS
     public int CompareTo(object obj)
     {
         Character? compare = obj as Character;
