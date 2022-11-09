@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ApexDataApi.Controllers
 {
+    /// <summary>
+    /// A Controller for Player actions for the Front End
+    /// </summary>
     [ApiExplorerSettings(IgnoreApi = true)]
     [Route("frontend/[controller]")]
     public class PlayersController : Controller
@@ -34,7 +37,6 @@ namespace ApexDataApi.Controllers
         public async Task<ActionResult> Create(Player player)
         {
             await _playersService.CreateAsync(player);
-            //return View();
             return RedirectToAction("IndexAdmin");
         }
         #endregion CREATE

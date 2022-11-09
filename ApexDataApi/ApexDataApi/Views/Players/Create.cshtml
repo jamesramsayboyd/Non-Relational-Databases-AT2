@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<ApexDataApi.Models.Player>*@
-@model ApexDataApi.Models.Player
+﻿@model ApexDataApi.Models.Player
 
 @{
     ViewData["Title"] = "Create";
@@ -49,6 +48,7 @@
                     <option value="wrai">Wraith</option>
                     <option value="bang">Bangalore</option>
                     <option value="hori">Horizon</option>
+                    @* TODO: find a way to do this programmatically*@
                 </select>
                 <span asp-validation-for="Character1" class="text-danger"></span>
             </div><br />
