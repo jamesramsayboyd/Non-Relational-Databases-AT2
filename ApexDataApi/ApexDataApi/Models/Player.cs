@@ -8,29 +8,29 @@ public class Player : IComparable
     #region CONSTRUCTORS
     public Player() { }
 
-    /// <summary>
-    /// An overloaded constructor allowing all fields to be set
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="playerName"></param>
-    /// <param name="rank"></param>
-    /// <param name="avatar"></param>
-    /// <param name="topranked"></param>
-    public Player(string id, string playerName, int rank, string avatar, bool topranked)
-    {
-        Id = id;
-        PlayerName = playerName;
-        Rank = rank;
-        Avatar = avatar;
-        Topranked = topranked;
-    }
-    public Player(string id, string playerName, int rank, string avatar)
-    {
-        Id = id;
-        PlayerName = playerName;
-        Rank = rank;
-        Avatar = avatar;
-    }
+    ///// <summary>
+    ///// An overloaded constructor allowing all fields to be set
+    ///// </summary>
+    ///// <param name="id"></param>
+    ///// <param name="playerName"></param>
+    ///// <param name="rank"></param>
+    ///// <param name="avatar"></param>
+    ///// <param name="topranked"></param>
+    //public Player(string id, string playerName, int rank, string avatar, bool topranked)
+    //{
+    //    Id = id;
+    //    PlayerName = playerName;
+    //    Rank = rank;
+    //    Avatar = avatar;
+    //    Topranked = topranked;
+    //}
+    //public Player(string id, string playerName, int rank, string avatar)
+    //{
+    //    Id = id;
+    //    PlayerName = playerName;
+    //    Rank = rank;
+    //    Avatar = avatar;
+    //}
 
     public Player(string id, string playerName, int rank)
     {

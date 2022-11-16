@@ -82,6 +82,12 @@ namespace ApexDataApi.Controllers
             return CreatedAtAction(nameof(Get), 0, 0);
         }
 
+        //public async Task<ActionResult> Create(Player player)
+        //{
+        //    await _playersService.CreateAsync(player);
+        //    return RedirectToAction("IndexAdmin");
+        //}
+
         #endregion INSERT PLAYERS
 
         #region UPDATE PLAYER RANKING

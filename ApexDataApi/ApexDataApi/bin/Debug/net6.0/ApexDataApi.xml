@@ -84,15 +84,10 @@
             <param name="rank2">The new ranking</param>
             <returns></returns>
         </member>
-        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.String,System.Int32,System.String,System.Boolean)">
+        <member name="T:ApexDataApi.Controllers.PlayersController">
             <summary>
-            An overloaded constructor allowing all fields to be set
+            A Controller for Player actions for the Front End
             </summary>
-            <param name="id"></param>
-            <param name="playerName"></param>
-            <param name="rank"></param>
-            <param name="avatar"></param>
-            <param name="topranked"></param>
         </member>
         <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.Int32,System.String)">
             <summary>
@@ -127,6 +122,108 @@
             Returns a list of all characters with playtime across all players
             List is sorted in order of playtime descending
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Services.PlayersService">
+            <summary>
+            A Service containing CRUD methods and other utilities related to
+            Player objects, used for both the API and Front End
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.#ctor(Microsoft.Extensions.Options.IOptions{ApexDataApi.Models.ApexPlayerDatabaseSettings})">
+            <summary>
+            MongoDB connection
+            </summary>
+            <param name="apexPlayerDatabaseSettings"></param>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetAsync">
+            <summary>
+            Returns a list of all players
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetRankedListAsync">
+            <summary>
+            Returns a list of all players, ordered by Rank ascending
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetAsyncId(System.String)">
+            <summary>
+            Finds a single player by ID, returns the Player object
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetAsync(System.String)">
+            <summary>
+            Finds a single player by PlayerName, returns the Player object
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetRank(System.Int32)">
+            <summary>
+            Returns the Rank of a single player
+            </summary>
+            <param name="rank"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.CreateAsync(ApexDataApi.Models.Player)">
+            <summary>
+            A method to create a player, used for the front end
+            </summary>
+            <param name="newPlayer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.CreateAsync(System.String,System.Int32,System.String)">
+            <summary>
+            A simple method to create a player, used for the API
+            Only name, rank and avatar are set, character details are left null for simplicity
+            </summary>
+            <param name="name"></param>
+            <param name="rank"></param>
+            <param name="avatar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.UpdatePlayerAsync(ApexDataApi.Models.Player)">
+            <summary>
+            A method to update a player's details, used for the front end
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.UpdateRankAsync(ApexDataApi.Models.Player,System.Int32)">
+            <summary>
+            A method to update a single player's rank, used for the API
+            The entire list of player's ranks are updated as necessary to compensate
+            </summary>
+            <param name="player"></param>
+            <param name="newRank"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.UpdateMultipleRanksAsync(ApexDataApi.Models.Player,System.Int32,ApexDataApi.Models.Player,System.Int32)">
+            <summary>
+            A method to update two player's ranks at once, used for the API
+            </summary>
+            <param name="player1"></param>
+            <param name="newrank1"></param>
+            <param name="player2"></param>
+            <param name="newrank2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.RemoveAsync(System.String)">
+            <summary>
+            A method to remove a player by PlayerName variable, used for the API
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.RemoveAsync(ApexDataApi.Models.Player)">
+            <summary>
+            A method to remove a player, used for the front end
+            </summary>
+            <param name="player"></param>
             <returns></returns>
         </member>
     </members>
