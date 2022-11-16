@@ -4,11 +4,19 @@ using MongoDB.Driver;
 
 namespace ApexDataApi.Services;
 
+/// <summary>
+/// A Service containing CRUD methods and other utilities related to
+/// Character objects, used for both the API and Front End
+/// </summary>
 public class CharactersService
 {
     private readonly IMongoCollection<Character> _charactersCollection;
     private readonly IMongoCollection<Player> _playersCollection;
-
+    
+    /// <summary>
+    /// MongoDB connection
+    /// </summary>
+    /// <param name="apexPlayerDatabaseSettings"></param>
     public CharactersService(
         IOptions<ApexPlayerDatabaseSettings> apexPlayerDatabaseSettings)
     {
@@ -25,22 +33,21 @@ public class CharactersService
     }
 
     #region GET
-    public async Task<List<Character>> GetAsync() =>
-        await _charactersCollection.Find(_ => true).ToListAsync();
-
+    /// <summary>
+    /// Finds a single character using the CharacterName variable
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public async Task<Character?> GetAsync(string name) =>
         await _charactersCollection.Find(x => x.CharacterName == name).FirstOrDefaultAsync();
 
+    /// <summary>
+    /// Finds a single character by ID
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public async Task<Character?> GetAsyncId(string id) =>
         await _charactersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-
-    public async Task<List<Character>> GetPlaytimeAsync()
-    {
-        List<Character> result = await _charactersCollection.Find(_ => true).ToListAsync();
-        result.Sort();
-        result.Reverse();
-        return result;
-    }
 
     /// <summary>
     /// Loops through a list of all players searching for a specific character
@@ -64,7 +71,8 @@ public class CharactersService
     }
 
     /// <summary>
-    /// Returns a list of all characters, calculating playtime across all players
+    /// Returns a list of all characters, calculating playtime across all players. 
+    /// List is unsorted
     /// </summary>
     /// <returns></returns>
     public async Task<List<Character>> GetCharacterList()
@@ -78,7 +86,7 @@ public class CharactersService
     }
 
     /// <summary>
-    /// Returns a list of all characters with playtime across all players
+    /// Returns a list of all characters with playtime across all players. 
     /// List is sorted in order of playtime descending
     /// </summary>
     /// <returns></returns>
@@ -96,19 +104,35 @@ public class CharactersService
     #endregion GET
 
     #region POST
+    /// <summary>
+    /// Creates a new character and adds it to the database. Used for the front end
+    /// </summary>
+    /// <param name="newCharacter"></param>
+    /// <returns></returns>
     public async Task CreateAsync(Character newCharacter) =>
         await _charactersCollection.InsertOneAsync(newCharacter);
 
-    public async Task CreateListAsync(string name1, int playtime1, string name2, int playtime2)
+    /// <summary>
+    /// Creates two new characters and adds them to the database. Used for the API
+    /// </summary>
+    /// <param name="name1"></param>
+    /// <param name="name2"></param>
+    /// <returns></returns>
+    public async Task CreateListAsync(string name1, string name2)
     {
-        Character character1 = new Character(name1, playtime1);
-        Character character2 = new Character(name2, playtime2);
+        Character character1 = new Character(name1);
+        Character character2 = new Character(name2);
         List<Character> characterList = new List<Character>() { character1, character2 };
         await _charactersCollection.InsertManyAsync(characterList);
     }
     #endregion POST
 
     #region PUT
+    /// <summary>
+    /// Updates a single character. Used for the front end
+    /// </summary>
+    /// <param name="updatedCharacter"></param>
+    /// <returns></returns>
     public async Task UpdateCharacterAsync(Character updatedCharacter)
     {
         await _charactersCollection.ReplaceOneAsync(x => x.Id == updatedCharacter.Id, updatedCharacter);
@@ -116,9 +140,19 @@ public class CharactersService
     #endregion PUT
 
     #region DELETE
+    /// <summary>
+    /// Deletes a single character by name, used for the API
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public async Task RemoveAsync(string name) =>
         await _charactersCollection.DeleteOneAsync(x => x.CharacterName.ToLower() == name.ToLower());
 
+    /// <summary>
+    /// Deletes a single character, used for the front end
+    /// </summary>
+    /// <param name="character"></param>
+    /// <returns></returns>
     public async Task RemoveAsync(Character character) =>
         await _charactersCollection.DeleteOneAsync(x => x.Id == character.Id);
     #endregion DELETE

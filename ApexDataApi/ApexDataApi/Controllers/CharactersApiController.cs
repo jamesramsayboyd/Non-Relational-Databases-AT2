@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ApexDataApi.Controllers
 {
+    /// <summary>
+    /// A controller for character actions, used for the API
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("api/Characters")]
@@ -19,6 +22,10 @@ namespace ApexDataApi.Controllers
     {
         private readonly CharactersService _charactersService;
 
+        /// <summary>
+        /// Connection to the Service containing all methods
+        /// </summary>
+        /// <param name="charactersService"></param>
         public CharactersApiController(CharactersService charactersService)
         {
             _charactersService = charactersService;
@@ -26,7 +33,7 @@ namespace ApexDataApi.Controllers
 
         #region SELECT ALL CHARACTERS
         /// <summary>
-        /// Selects all Characters
+        /// Returns a list of all characters
         /// </summary>
         /// <returns></returns>
         [HttpGet("AllCharacters")]
@@ -36,7 +43,7 @@ namespace ApexDataApi.Controllers
 
         #region SORT CHARACTERS
         /// <summary>
-        /// Sorts all Characters by Playtime
+        /// Returns a list of all characters sorted by playtime descending
         /// </summary>
         /// <returns></returns>
         [HttpGet("CharactersByPlaytime")]
@@ -48,12 +55,13 @@ namespace ApexDataApi.Controllers
         /// <summary>
         /// Inserts two Characters in one operation
         /// </summary>
-        /// <param name="characterList">A List of Character objects serialized from the request body</param>
+        /// <param name="name1">The name of the first character to be inserted</param>
+        /// <param name="name2">The name of the second character to be inserted</param>
         /// <returns></returns>
-        [HttpPost("{name1}/{playtime1}/{name2}/{playtime2}")]
-        public async Task<IActionResult> PostTwo(string name1, int playtime1, string name2, int playtime2)
+        [HttpPost("{name1}/{name2}")]
+        public async Task<IActionResult> PostTwo(string name1, string name2)
         {
-            await _charactersService.CreateListAsync(name1, playtime1, name2, playtime2);
+            await _charactersService.CreateListAsync(name1, name2);
 
             return CreatedAtAction(nameof(GetCharacters), 0, 0);
         }
@@ -61,7 +69,7 @@ namespace ApexDataApi.Controllers
 
         #region DELETE CHARACTERS
         /// <summary>
-        /// Deletes a specific Character
+        /// Deletes a specific Character by name
         /// </summary>
         /// <param name="name">Name of the character to delete (case-insensitive)</param>
         /// <returns></returns>

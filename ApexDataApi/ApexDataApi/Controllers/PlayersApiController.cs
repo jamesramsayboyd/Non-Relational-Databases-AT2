@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-//using ApexDataApi.Data;
 using ApexDataApi.Models;
 using ApexDataApi.Services;
 using Microsoft.AspNetCore.Authorization;
 
 namespace ApexDataApi.Controllers
 {
+    /// <summary>
+    /// A controller for player actions, used for the API
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("api/Players")]
@@ -19,6 +21,10 @@ namespace ApexDataApi.Controllers
     {
         private readonly PlayersService _playersService;
 
+        /// <summary>
+        /// Connection to the Service containing all methods
+        /// </summary>
+        /// <param name="playersService"></param>
         public PlayersApiController(PlayersService playersService)
         {
             _playersService = playersService;
@@ -26,7 +32,7 @@ namespace ApexDataApi.Controllers
 
         #region SELECT PLAYERS/CHARACTERS
         /// <summary>
-        /// Selects all Players
+        /// Selects all players
         /// </summary>
         /// <returns></returns>
         [Authorize]
@@ -36,7 +42,7 @@ namespace ApexDataApi.Controllers
 
 
         /// <summary>
-        /// Selects a Player by name
+        /// Selects a single player by name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -56,7 +62,7 @@ namespace ApexDataApi.Controllers
 
         #region SORT PLAYERS/CHARACTERS
         /// <summary>
-        /// Sorts all Players by Rank
+        /// Sorts all players by Rank
         /// </summary>
         /// <returns></returns>
         [Authorize]
@@ -72,7 +78,7 @@ namespace ApexDataApi.Controllers
         /// </summary>
         /// <param name="name">The player's name</param>
         /// <param name="rank">The player's rank</param>
-        /// <param name="avatar">A link to the player's avatar image</param>
+        /// <param name="avatar">The filepath of the player's avatar image</param>
         /// <returns></returns>
         [HttpPost("{name}/{rank}/{avatar}")]
         public async Task<IActionResult> Post(string name, int rank, string avatar)
@@ -81,12 +87,6 @@ namespace ApexDataApi.Controllers
 
             return CreatedAtAction(nameof(Get), 0, 0);
         }
-
-        //public async Task<ActionResult> Create(Player player)
-        //{
-        //    await _playersService.CreateAsync(player);
-        //    return RedirectToAction("IndexAdmin");
-        //}
 
         #endregion INSERT PLAYERS
 

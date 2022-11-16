@@ -3,44 +3,21 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ApexDataApi.Models;
 
+/// <summary>
+/// A Class representing an Apex Legends player
+/// </summary>
 public class Player : IComparable
 {
     #region CONSTRUCTORS
+
+    /// <summary>
+    /// A default, parameterless constructor for MVC purposes
+    /// </summary>
     public Player() { }
-
-    ///// <summary>
-    ///// An overloaded constructor allowing all fields to be set
-    ///// </summary>
-    ///// <param name="id"></param>
-    ///// <param name="playerName"></param>
-    ///// <param name="rank"></param>
-    ///// <param name="avatar"></param>
-    ///// <param name="topranked"></param>
-    //public Player(string id, string playerName, int rank, string avatar, bool topranked)
-    //{
-    //    Id = id;
-    //    PlayerName = playerName;
-    //    Rank = rank;
-    //    Avatar = avatar;
-    //    Topranked = topranked;
-    //}
-    //public Player(string id, string playerName, int rank, string avatar)
-    //{
-    //    Id = id;
-    //    PlayerName = playerName;
-    //    Rank = rank;
-    //    Avatar = avatar;
-    //}
-
-    public Player(string id, string playerName, int rank)
-    {
-        Id = id;
-        PlayerName = playerName;
-        Rank = rank;
-    }
 
     /// <summary>
     /// An overloaded constructor allowing PlayerName and Rank fields to be set
+    /// Used to insert a player with the API
     /// </summary>
     /// <param name="name"></param>
     /// <param name="rank"></param>

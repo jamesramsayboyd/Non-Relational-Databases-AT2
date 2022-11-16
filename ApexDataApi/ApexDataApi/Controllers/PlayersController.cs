@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using ApexDataApi.Models;
+﻿using ApexDataApi.Models;
 using ApexDataApi.Services;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApexDataApi.Controllers
 {
     /// <summary>
-    /// A Controller for Player actions for the Front End
+    /// A controller for player actions, used for the Front End
     /// </summary>
     [ApiExplorerSettings(IgnoreApi = true)]
     [Route("frontend/[controller]")]
@@ -20,18 +13,31 @@ namespace ApexDataApi.Controllers
     {
         private readonly PlayersService _playersService;
 
+        /// <summary>
+        /// Connection to the Service containing all methods
+        /// </summary>
+        /// <param name="playersService"></param>
         public PlayersController(PlayersService playersService)
         {
             _playersService = playersService;
         }
 
         #region CREATE
+        /// <summary>
+        /// Returns the Create Player page
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Create"), Route("create")]
         public ActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Adds the player to the database, redirects the user to index
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         [HttpPost("Create"), Route("details")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Player player)
@@ -42,21 +48,32 @@ namespace ApexDataApi.Controllers
         #endregion CREATE
 
         #region READ
-        // Show list of all players with CRUD options for admin
+        /// <summary>
+        /// Shows list of all players with CRUD options for admin
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Admin"), Route("index")]
         public async Task<IActionResult> IndexAdmin()
         {
             return View(await _playersService.GetAsync());
         }
 
-        // Show list of all players ordered by Rank ascending
+        /// <summary>
+        /// Show list of all players ordered by Rank ascending, used 
+        /// as the player leaderboard page
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Index"), Route("index")]
         public async Task<IActionResult> Index()
         {
             return View(await _playersService.GetRankedListAsync());
         }
 
-        // Show a single player's details
+        /// <summary>
+        /// Shows a single player's details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("PlayerDetails"), Route("details")]
         public async Task<IActionResult> Details(string id)
         {
@@ -72,6 +89,11 @@ namespace ApexDataApi.Controllers
         #endregion READ
 
         #region UPDATE
+        /// <summary>
+        /// Returns the Edit Player page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("Edit"), Route("edit")]
         public async Task<IActionResult> Edit(string id)
         {
@@ -85,6 +107,11 @@ namespace ApexDataApi.Controllers
             return View(player);
         }
 
+        /// <summary>
+        /// Updates the player's details and redirects to the index
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         [HttpPost("Edit"), Route("details")]
         public async Task<ActionResult> Edit(Player player)
         {
@@ -94,6 +121,11 @@ namespace ApexDataApi.Controllers
         #endregion UPDATE
 
         #region DELETE
+        /// <summary>
+        /// Loads the Delete Player page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("Delete")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -107,6 +139,11 @@ namespace ApexDataApi.Controllers
             return View(player);
         }
 
+        /// <summary>
+        /// Deletes the player from the database, redirects to the index
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         [HttpPost("Delete")]
         public async Task<ActionResult> Delete(Player player)
         {
