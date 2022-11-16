@@ -45,6 +45,10 @@
             <div class="form-group">
                 <label asp-for="Character1" class="control-label">#1 Character: </label>
                 <select asp-for ="Character1" class="form-control">
+                    @*@foreach(Character character in ViewBag)
+                    {
+                        <option value="@character.Id">@character.CharacterName</option>
+                    }*@
                     <option value="wrai">Wraith</option>
                     <option value="bang">Bangalore</option>
                     <option value="hori">Horizon</option>

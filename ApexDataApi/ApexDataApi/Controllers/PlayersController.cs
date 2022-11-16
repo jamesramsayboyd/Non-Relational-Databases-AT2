@@ -12,24 +12,34 @@ namespace ApexDataApi.Controllers
     public class PlayersController : Controller
     {
         private readonly PlayersService _playersService;
+        private readonly CharactersService _charactersService;
 
         /// <summary>
         /// Connection to the Service containing all methods
         /// </summary>
         /// <param name="playersService"></param>
-        public PlayersController(PlayersService playersService)
+        /// <param name="charactersService"></param>
+        public PlayersController(PlayersService playersService, CharactersService charactersService)
         {
             _playersService = playersService;
+            _charactersService = charactersService;
         }
 
         #region CREATE
-        /// <summary>
-        /// Returns the Create Player page
-        /// </summary>
-        /// <returns></returns>
+        ///// <summary>
+        ///// Returns the Create Player page
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet("Create"), Route("create")]
+        //public async ActionResult Create()
+        //{
+        //    return View();
+        //}
+
         [HttpGet("Create"), Route("create")]
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
+            ViewBag.Message = await _charactersService.GetCharacterList();
             return View();
         }
 

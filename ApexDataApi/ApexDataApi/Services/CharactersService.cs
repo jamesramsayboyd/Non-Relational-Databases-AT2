@@ -70,6 +70,17 @@ public class CharactersService
         }
     }
 
+    // Creating a list of all character IDs
+    //public async Task<Array<string>> GetCharacterIds()
+    //{
+    //    Array<string> names;
+    //    List<Character> result = await _charactersCollection.Find(_ => true).ToListAsync();
+    //    foreach (Character character in result)
+    //    {
+
+    //    }
+    //}
+
     /// <summary>
     /// Returns a list of all characters, calculating playtime across all players. 
     /// List is unsorted

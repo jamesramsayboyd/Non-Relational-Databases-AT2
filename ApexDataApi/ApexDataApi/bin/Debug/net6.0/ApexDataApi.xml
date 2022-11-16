@@ -50,6 +50,78 @@
             <param name="name2">Name of the second character to delete</param>
             <returns></returns>
         </member>
+        <member name="T:ApexDataApi.Controllers.CharactersController">
+            <summary>
+            A controller for character actions, used for the Front End
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.#ctor(ApexDataApi.Services.CharactersService)">
+            <summary>
+            Connection to the Service containing all methods
+            </summary>
+            <param name="charactersService"></param>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Create">
+            <summary>
+            Returns the Create Character page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Create(ApexDataApi.Models.Character)">
+            <summary>
+            Adds the character to the database, redirects the user to index
+            </summary>
+            <param name="character">The character being created</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.IndexAdmin">
+            <summary>
+            Shows list of all characters with CRUD options for admin
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Index">
+            <summary>
+            Shows list of all characters ordered by Playtime descending, used 
+            as the character leaderboard page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Details(System.String)">
+            <summary>
+            Shows a single character's details
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Edit(System.String)">
+            <summary>
+            Returns the Edit Character page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Edit(ApexDataApi.Models.Character)">
+            <summary>
+            Updates the character's details and redirects to the index
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Delete(System.String)">
+            <summary>
+            Loads the Delete Character page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Delete(ApexDataApi.Models.Character)">
+            <summary>
+            Deletes the character from the database, redirects to the index
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
         <member name="T:ApexDataApi.Controllers.PlayersApiController">
             <summary>
             A controller for player actions, used for the API
@@ -112,21 +184,16 @@
             A controller for player actions, used for the Front End
             </summary>
         </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.#ctor(ApexDataApi.Services.PlayersService)">
+        <member name="M:ApexDataApi.Controllers.PlayersController.#ctor(ApexDataApi.Services.PlayersService,ApexDataApi.Services.CharactersService)">
             <summary>
             Connection to the Service containing all methods
             </summary>
             <param name="playersService"></param>
-        </member>
-        <member name="M:ApexDataApi.Controllers.PlayersController.Create">
-            <summary>
-            Returns the View to create a character
-            </summary>
-            <returns></returns>
+            <param name="charactersService"></param>
         </member>
         <member name="M:ApexDataApi.Controllers.PlayersController.Create(ApexDataApi.Models.Player)">
             <summary>
-            Adds the character to the database, redirects the user to index
+            Adds the player to the database, redirects the user to index
             </summary>
             <param name="player"></param>
             <returns></returns>
