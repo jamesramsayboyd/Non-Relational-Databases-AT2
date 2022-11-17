@@ -23,6 +23,7 @@ public class Character : IComparable
         CharacterName = characterName;
     }
     #endregion CONSTRUCTORS
+
     /// <summary>
     /// CompareTo function required for the IComparable interface
     /// Character objects are sorted by the Playtime variable
@@ -39,8 +40,8 @@ public class Character : IComparable
     /// A unique ID for each character. IDs should be manually set to be
     /// the first four characters of the CharacterName
     /// </summary>
-    [BsonElement("Id")]
-    public string? Id { get; set; }
+    [BsonElement("id")]
+    public string Id { get; set; }
 
     /// <summary>
     /// The Character's name (i.e. 'Bangalore', 'Horizon')

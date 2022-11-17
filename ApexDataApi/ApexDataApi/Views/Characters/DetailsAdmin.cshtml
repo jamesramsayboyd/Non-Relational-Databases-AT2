@@ -1,7 +1,7 @@
 ﻿@model ApexDataApi.Models.Character
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "DetailsAdmin";
 }
 
 <h1>Details</h1>
@@ -25,5 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="IndexAdmin">Back to List</a>
 </div>

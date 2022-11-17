@@ -132,7 +132,9 @@ public class CharactersService
     public async Task CreateListAsync(string name1, string name2)
     {
         Character character1 = new Character(name1);
+        character1.Id = name1.Substring(0, 4).ToLower();
         Character character2 = new Character(name2);
+        character1.Id = name2.Substring(0, 4).ToLower();
         List<Character> characterList = new List<Character>() { character1, character2 };
         await _charactersCollection.InsertManyAsync(characterList);
     }

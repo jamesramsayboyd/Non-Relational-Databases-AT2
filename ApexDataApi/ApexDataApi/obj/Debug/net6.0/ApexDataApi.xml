@@ -218,6 +218,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.DetailsAdmin(System.String)">
+            <summary>
+            Shows a single player's details with CRUD options
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:ApexDataApi.Controllers.PlayersController.Edit(System.String)">
             <summary>
             Returns the Edit Player page

@@ -96,6 +96,24 @@ namespace ApexDataApi.Controllers
 
             return View(player);
         }
+
+        /// <summary>
+        /// Shows a single player's details with CRUD options
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("PlayerDetailsAdmin"), Route("detailsAdmin")]
+        public async Task<IActionResult> DetailsAdmin(string id)
+        {
+            var player = await _playersService.GetAsyncId(id);
+
+            if (player is null)
+            {
+                return NotFound();
+            }
+
+            return View(player);
+        }
         #endregion READ
 
         #region UPDATE
