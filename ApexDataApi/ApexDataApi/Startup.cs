@@ -2,6 +2,7 @@
 using ApexDataApi.Models;
 using ApexDataApi.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -80,7 +81,15 @@ namespace ApexDataApi
             app.UseHttpsRedirection();
 
             app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
+
+            // I needed to add this code before pictures would display in the front end. Don't ask me why.
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), @"Content\Images")),
+                RequestPath = "/Content/Images"
+            });
 
             app.UseRouting();
             app.UseAuthentication();

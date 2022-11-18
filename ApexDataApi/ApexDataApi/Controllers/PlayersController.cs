@@ -39,7 +39,9 @@ namespace ApexDataApi.Controllers
         [HttpGet("Create"), Route("create")]
         public async Task<ActionResult> Create()
         {
-            ViewBag.Message = await _charactersService.GetCharacterList();
+            List<Character> result = await _charactersService.GetCharacterList();
+            ViewBag.CharacterNames = result;
+            //ViewBag.Message = await _charactersService.GetCharacterList();
             return View();
         }
 

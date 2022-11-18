@@ -623,3 +623,4 @@ C:\Users\James\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDat
 C:\Users\James\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\obj\Debug\net6.0\ApexDataApi.pdb
 C:\Users\James\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\obj\Debug\net6.0\ApexDataApi.genruntimeconfig.cache
 C:\Users\James\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\obj\Debug\net6.0\ref\ApexDataApi.dll
+C:\Users\James\Documents\GitHub\Non-Relational-Databases-AT2\ApexDataApi\ApexDataApi\bin\Debug\net6.0\Content\Images\test.jpg

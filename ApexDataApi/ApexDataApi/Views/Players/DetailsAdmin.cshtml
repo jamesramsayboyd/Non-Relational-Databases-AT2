@@ -7,32 +7,30 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Player</h4>
+    <img src="@Html.DisplayFor(model => model.Avatar)" />
+    <h1>@Html.DisplayFor(model => model.PlayerName)</h1>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PlayerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PlayerName)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Rank)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rank)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rank) <p>
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Avatar)
+        <dt class="col-sm-2">
+            Most Played Character
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Avatar)
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Character1) <br>
+                @Html.DisplayFor(model => model.Character1Playtime) hours <p>
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Topranked)
+        <dt class="col-sm-2">
+            2nd Most Played Character
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Topranked)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Character2) <br>
+            @Html.DisplayFor(model => model.Character2Playtime) hours <p>
         </dd>
     </dl>
 </div>
@@ -40,3 +38,4 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="IndexAdmin">Back to List</a>
 </div>
+

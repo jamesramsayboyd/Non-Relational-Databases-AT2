@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<ApexDataApi.Models.Player>
-@*@model ApexDataApi.Models.Player*@
 
 @{
     ViewData["Title"] = "Players";
@@ -16,10 +15,10 @@
                 Rank
             </th>
             <th>
-                Player
+                Avatar
             </th>
             <th>
-                Avatar
+                Player
             </th>
             @*<th>
                 @Html.DisplayNameFor(model => model.Topranked)
@@ -33,17 +32,20 @@
             <td>
                 @if (item.Topranked)
                 {
-                    <div><img src="srcRank1.jpg" /></div>
+                    <img src="@Url.Content("~/Content/Images/topranked.png")" />
                 }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rank)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PlayerName)
+                @*<img src="@Html.DisplayFor(modelItem => item.Avatar)">*@
+                @*<img src="@Url.Content(item.Avatar)" alt="Player Avatar" />*@
+                @*<img src="Content/Images/test.jpg" />*@
+                <img src="@Url.Content("~/Content/Images/test.png")" />
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.Avatar)">
+                @Html.DisplayFor(modelItem => item.PlayerName)
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a>

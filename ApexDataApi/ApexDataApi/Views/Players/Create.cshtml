@@ -27,9 +27,14 @@
                 <input asp-for="Rank" class="form-control" />
                 <span asp-validation-for="Rank" class="text-danger"></span>
             </div><br />
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Avatar" class="control-label">Avatar: </label>
                 <input type="file" asp-for="Avatar" class="form-control" />
+                <span asp-validation-for="Avatar" class="text-danger"></span>
+            </div><br />*@
+            <div class="form-group">
+                <label asp-for="Avatar" class="control-label">Avatar: </label>
+                <input asp-for="Avatar" class="form-control" />
                 <span asp-validation-for="Avatar" class="text-danger"></span>
             </div><br />
             @*<div class="form-group form-check">
@@ -43,36 +48,33 @@
                 <span asp-validation-for="Character1" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <label asp-for="Character1" class="control-label">#1 Character: </label>
+                <label asp-for="Character1" class="control-label">#1 Most Played Character: </label>
                 <select asp-for ="Character1" class="form-control">
-                    @*@foreach(Character character in ViewBag)
+                    @foreach(var character in ViewBag.CharacterNames)
                     {
                         <option value="@character.Id">@character.CharacterName</option>
-                    }*@
-                    <option value="wrai">Wraith</option>
-                    <option value="bang">Bangalore</option>
-                    <option value="hori">Horizon</option>
-                    @* TODO: find a way to do this programmatically*@
+                    }
                 </select>
                 <span asp-validation-for="Character1" class="text-danger"></span>
             </div><br />
             <div class="form-group">
                 <label asp-for="Character1Playtime" class="control-label">Playtime: </label>
-                <input asp-for="Character1Playtime" class="form-control" />
+                <input asp-for="Character1Playtime" class="form-control" min="0" />
                 <span asp-validation-for="Character1Playtime" class="text-danger"></span>
             </div><br />
             <div class="form-group">
-                <label asp-for="Character2" class="control-label">#2 Character: </label>
+                <label asp-for="Character2" class="control-label">#2 Most Played Character: </label>
                 <select asp-for="Character2" class="form-control">
-                    <option value="wrai">Wraith</option>
-                    <option value="bang">Bangalore</option>
-                    <option value="hori">Horizon</option>
+                    @foreach (var character in ViewBag.CharacterNames)
+                    {
+                            <option value="@character.Id">@character.CharacterName</option>
+                    }
                 </select>
                 <span asp-validation-for="Character2" class="text-danger"></span>
             </div><br />
             <div class="form-group">
                 <label asp-for="Character2Playtime" class="control-label">Playtime: </label>
-                <input asp-for="Character2Playtime" class="form-control" />
+                <input asp-for="Character2Playtime" class="form-control" min="0" />
                 <span asp-validation-for="Character2Playtime" class="text-danger"></span>
             </div><br />
             <div class="form-group">
