@@ -32,17 +32,16 @@
             <td>
                 @if (item.Topranked)
                 {
-                    <img src="@Url.Content("~/Content/Images/topranked.png")" />
+                    <img src="@Url.Content("~/Content/Images/topranked.png")" alt="Top Ranked" />
                 }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rank)
             </td>
             <td>
-                @*<img src="@Html.DisplayFor(modelItem => item.Avatar)">*@
-                @*<img src="@Url.Content(item.Avatar)" alt="Player Avatar" />*@
-                @*<img src="Content/Images/test.jpg" />*@
-                <img src="@Url.Content("~/Content/Images/test.png")" />
+                <div class="avatarsmall">
+                    <img src="@Url.Content("~/Content/Images/" + @item.Avatar)" alt="@item.PlayerName Avatar"/>
+                </div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PlayerName)
