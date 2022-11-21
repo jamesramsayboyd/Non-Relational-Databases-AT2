@@ -296,6 +296,11 @@
             stats per character
             </summary>
         </member>
+        <member name="P:ApexDataApi.Models.Character.Image">
+            <summary>
+            An image representing the character
+            </summary>
+        </member>
         <member name="T:ApexDataApi.Models.Player">
             <summary>
             A Class representing an Apex Legends player

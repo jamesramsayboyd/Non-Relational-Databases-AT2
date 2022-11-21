@@ -57,4 +57,10 @@ public class Character : IComparable
     /// </summary>
     [BsonElement("playtime")]
     public int Playtime { get; set; }
+
+    /// <summary>
+    /// An image representing the character
+    /// </summary>
+    [BsonElement("image")]
+    public string Image { get; set; } = null!;
 }

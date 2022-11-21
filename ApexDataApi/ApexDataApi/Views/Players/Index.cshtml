@@ -30,7 +30,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @if (item.Topranked)
+                @if (item.Rank == 1)
                 {
                     <img src="@Url.Content("~/Content/Images/topranked.png")" alt="Top Ranked" />
                 }

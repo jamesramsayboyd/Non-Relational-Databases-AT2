@@ -22,6 +22,14 @@
                 <input asp-for="CharacterName" class="form-control" />
                 <span asp-validation-for="CharacterName" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Avatar: </label>
+                <select asp-for="Image" class="form-control">
+                    <option value="">Choose</option>
+                    <option value="default.png">Default</option>
+                </select>
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div><br />
             @*<div class="form-group">
                 <label asp-for="Playtime" class="control-label"></label>
                 <input asp-for="Playtime" class="form-control" />
