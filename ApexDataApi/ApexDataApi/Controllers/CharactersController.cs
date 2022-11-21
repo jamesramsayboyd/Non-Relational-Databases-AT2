@@ -43,6 +43,8 @@ namespace ApexDataApi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Character character)
         {
+            // automatically sets ID to first four characters of CharacterName
+            character.Id = character.CharacterName.Substring(0, 4).ToLower();
             await _charactersService.CreateAsync(character);
             return RedirectToAction("IndexAdmin");
         }

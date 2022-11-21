@@ -101,11 +101,11 @@ public class PlayersService
     /// <summary>
     /// A method to update a player's details, used for the front end
     /// </summary>
-    /// <param name="player"></param>
+    /// <param name="updatedPlayer"></param>
     /// <returns></returns>
-    public async Task UpdatePlayerAsync(Player player)
+    public async Task UpdatePlayerAsync(Player updatedPlayer)
     {
-        await _playersCollection.ReplaceOneAsync(x => x.Id == player.Id, player);
+        await _playersCollection.ReplaceOneAsync(x => x.Id == updatedPlayer.Id, updatedPlayer);
     }
 
     /// <summary>

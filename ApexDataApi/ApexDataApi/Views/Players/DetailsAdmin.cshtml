@@ -22,16 +22,19 @@
         <dt class="col-sm-2">
             Most Played Character
         </dt>
-
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Character1) <br>
-                @Html.DisplayFor(model => model.Character1Playtime) hours <p>
+            <div class="avatarsmall">
+                <img src="@Url.Content("~/Content/Images/characters/" + Model.Character1 + ".png")" />
+            </div>
+            @Html.DisplayFor(model => model.Character1Playtime) hours <p>
         </dd>
         <dt class="col-sm-2">
             2nd Most Played Character
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Character2) <br>
+            <div class="avatarsmall">
+                <img src="@Url.Content("~/Content/Images/characters/" + Model.Character2 + ".png")" />
+            </div>
             @Html.DisplayFor(model => model.Character2Playtime) hours <p>
         </dd>
     </dl>

@@ -471,7 +471,7 @@
             <summary>
             A method to update a player's details, used for the front end
             </summary>
-            <param name="player"></param>
+            <param name="updatedPlayer"></param>
             <returns></returns>
         </member>
         <member name="M:ApexDataApi.Services.PlayersService.UpdateRankAsync(ApexDataApi.Models.Player,System.Int32)">

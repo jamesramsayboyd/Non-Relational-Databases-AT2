@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+@*
 <h1>Edit</h1>
 
 <h4>Player</h4>
@@ -18,6 +18,11 @@
                 <input asp-for="PlayerName" class="form-control" />
                 <span asp-validation-for="PlayerName" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="PlayerName" class="control-label">Name: </label>
+                <input asp-for="PlayerName" class="form-control" />
+                <span asp-validation-for="PlayerName" class="text-danger"></span>
+            </div><br />
             <div class="form-group">
                 <label asp-for="Rank" class="control-label"></label>
                 <input asp-for="Rank" class="form-control" />
@@ -42,21 +47,20 @@
 
 <div>
     <a asp-action="IndexAdmin">Back to List</a>
+</div>*@
+
+
+<h1>Edit</h1>
+<div class="avatarlarge">
+    <img src="@Url.Content("~/Content/Images/players/" + Model.Avatar)" />
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-
-
-<h1>Create</h1>
-
-<h4>Player</h4>
+<h1>@Html.DisplayFor(model => model.PlayerName)</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             @*<div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
                 <input asp-for="Id" class="form-control" />
@@ -64,17 +68,17 @@
             </div>*@
             <div class="form-group">
                 <label asp-for="PlayerName" class="control-label">Name: </label>
-                <input asp-for="PlayerName" class="form-control" min="0" />
+                <input asp-for="PlayerName" class="form-control" />
                 <span asp-validation-for="PlayerName" class="text-danger"></span>
             </div><br />
             <div class="form-group">
                 <label asp-for="Rank" class="control-label">Rank: </label>
-                <input asp-for="Rank" class="form-control" />
+                <input asp-for="Rank" class="form-control" min="1" />
                 <span asp-validation-for="Rank" class="text-danger"></span>
             </div><br />
             <div class="form-group">
                 <label asp-for="Avatar" class="control-label">Avatar: </label>
-                <input type="file" asp-for="Avatar" class="form-control" />
+                <input type="text" asp-for="Avatar" class="form-control" />
                 <span asp-validation-for="Avatar" class="text-danger"></span>
             </div><br />
             @*<div class="form-group form-check">
@@ -118,16 +122,13 @@
                 <span asp-validation-for="Character2Playtime" class="text-danger"></span>
             </div><br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
+    <br />
     <a asp-action="IndexAdmin">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

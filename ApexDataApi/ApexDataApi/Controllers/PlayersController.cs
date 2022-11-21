@@ -135,6 +135,9 @@ namespace ApexDataApi.Controllers
             if (player is null)
                 return NotFound();
 
+            List<Character> result = await _charactersService.GetCharacterList();
+            ViewBag.CharacterNames = result;
+
             return View(player);
         }
 
