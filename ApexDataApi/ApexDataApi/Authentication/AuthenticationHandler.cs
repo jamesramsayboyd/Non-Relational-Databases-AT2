@@ -2,32 +2,37 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 
 namespace ApexDataApi.AuthHandler
 {
+    /// <summary>
+    /// An Authentication function that works with the API
+    /// User must use username: 'admin' and password 'admin' to use API functions
+    /// </summary>
     public class AuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        private readonly IUserService _userService;
+        private readonly Services.AuthenticationService _authenticationService;
 
         // Constructor
-        public AuthenticationHandler(IUserService userService,
+        public AuthenticationHandler(Services.AuthenticationService authenticationService,
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock)
             : base(options, logger, encoder, clock)
         {
-            _userService = userService;
+            _authenticationService = authenticationService;
         }
 
+        /// <summary>
+        /// Requires that user use the correct username and password for API functions
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             string username = null;
@@ -38,7 +43,7 @@ namespace ApexDataApi.AuthHandler
                 username = credentials.FirstOrDefault();
                 var password = credentials.LastOrDefault();
 
-                if (!_userService.ValidateCredentials(username, password))
+                if (!_authenticationService.ValidateCredentials(username, password))
                     throw new ArgumentException("Invalid credentials");
             }
             catch (Exception ex)

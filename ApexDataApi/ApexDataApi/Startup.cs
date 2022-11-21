@@ -65,7 +65,7 @@ namespace ApexDataApi
             services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, AuthenticationHandler>("BasicAuthentication", null);
 
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<Services.AuthenticationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,25 +81,16 @@ namespace ApexDataApi
             app.UseHttpsRedirection();
 
             app.UseDefaultFiles();
-            //app.UseStaticFiles();
 
-            // I needed to add this code before pictures would display in the front end. Don't ask me why.
-            //app.UseStaticFiles(new StaticFileOptions
-            //{
-            //    FileProvider = new PhysicalFileProvider(
-            //        Path.Combine(Directory.GetCurrentDirectory(), @"Content\Images")),
-            //    RequestPath = "/Content/Images"
-            //});
+            //Adding static path to 'Content' directory for images, css
+           app.UseStaticFiles(new StaticFileOptions
+           {
+               FileProvider = new PhysicalFileProvider(
+                   Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
+               RequestPath = "/Content"
+           });
 
-            // Adding static path to 'Content' directory for images, css
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
-                RequestPath = "/Content"
-            });
-
-            app.UseRouting();
+           app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
 

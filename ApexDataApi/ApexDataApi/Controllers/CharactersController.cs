@@ -45,6 +45,8 @@ namespace ApexDataApi.Controllers
         {
             // automatically sets ID to first four characters of CharacterName
             character.Id = character.CharacterName.Substring(0, 4).ToLower();
+            // Character image set to default
+            character.Image = "default.png";
             await _charactersService.CreateAsync(character);
             return RedirectToAction("IndexAdmin");
         }

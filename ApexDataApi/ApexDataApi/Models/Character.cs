@@ -16,11 +16,15 @@ public class Character : IComparable
 
     /// <summary>
     /// A constructor allowing only the character's name to be set
+    /// ID is automatically set to first four characters of character name
+    /// Image is set to default
     /// </summary>
     /// <param name="characterName"></param>
     public Character(string characterName)
     {
         CharacterName = characterName;
+        Id = CharacterName.Substring(0, 4).ToLower();
+        Image = "default.png";
     }
     #endregion CONSTRUCTORS
 

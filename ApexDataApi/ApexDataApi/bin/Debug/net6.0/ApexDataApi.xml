@@ -4,6 +4,19 @@
         <name>ApexDataApi</name>
     </assembly>
     <members>
+        <member name="T:ApexDataApi.AuthHandler.AuthenticationHandler">
+            <summary>
+            An Authentication function that works with the API
+            User must use username: 'admin' and password 'admin' to use API functions
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.AuthHandler.AuthenticationHandler.HandleAuthenticateAsync">
+            <summary>
+            Requires that user use the correct username and password for API functions
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
         <member name="T:ApexDataApi.Controllers.CharactersApiController">
             <summary>
             A controller for character actions, used for the API
@@ -266,6 +279,8 @@
         <member name="M:ApexDataApi.Models.Character.#ctor(System.String)">
             <summary>
             A constructor allowing only the character's name to be set
+            ID is automatically set to first four characters of character name
+            Image is set to default
             </summary>
             <param name="characterName"></param>
         </member>
@@ -325,6 +340,19 @@
             The CompareTo function for the IComparable interface
             </summary>
             <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Services.AuthenticationService">
+            <summary>
+            A service defining the username/password authentication function
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Services.AuthenticationService.ValidateCredentials(System.String,System.String)">
+            <summary>
+            Username and password are set and checked here
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
             <returns></returns>
         </member>
         <member name="T:ApexDataApi.Services.CharactersService">
