@@ -84,11 +84,19 @@ namespace ApexDataApi
             //app.UseStaticFiles();
 
             // I needed to add this code before pictures would display in the front end. Don't ask me why.
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(
+            //        Path.Combine(Directory.GetCurrentDirectory(), @"Content\Images")),
+            //    RequestPath = "/Content/Images"
+            //});
+
+            // Adding static path to 'Content' directory for images, css
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), @"Content\Images")),
-                RequestPath = "/Content/Images"
+                    Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
+                RequestPath = "/Content"
             });
 
             app.UseRouting();

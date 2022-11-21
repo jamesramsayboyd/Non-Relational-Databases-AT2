@@ -1,14 +1,27 @@
 ﻿body {
-    background-color: lightblue;
-}
-#avatarsmall {
-    width: 32px;
-    height: 32px;
-}
-h1 {
-    color: red;
+    /*background-color: lightblue;*/
 }
 
-#headline {
-    color: red;
+.avatarsmall {
+    width: 80px;
+    height: 80px;
+}
+
+.avatarsmall img {
+    width: 100%;
+    height: auto;
+}
+
+.avatarlarge {
+    width: 300px;
+    height: 300px;
+}
+
+.avatarlarge img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    /*color: red;*/
 }

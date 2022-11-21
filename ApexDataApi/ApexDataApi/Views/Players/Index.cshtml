@@ -2,9 +2,6 @@
 
 @{
     ViewData["Title"] = "Players";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-
-    //Layout = @Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 
 <h1>Apex Ranked Leaderboard</h1>
@@ -42,8 +39,8 @@
                 @Html.DisplayFor(modelItem => item.Rank)
             </td>
             <td>
-                <div id="avatarsmall">
-                        <img src="@Url.Content("~/Content/Images/" + @item.Avatar)" alt="@item.PlayerName Avatar" style="width:80px;height:80px;" />
+                <div class="avatarsmall">
+                        <img src="@Url.Content("~/Content/Images/players/" + @item.Avatar)" alt="@item.PlayerName Avatar" />
                 </div>
             </td>
             <td>

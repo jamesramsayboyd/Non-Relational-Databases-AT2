@@ -16,7 +16,7 @@ namespace ApexDataApi.Controllers
     /// </summary>
     [Authorize]
     [ApiController]
-    [Route("api/Players")]
+    [Route("Players")]
     public class PlayersApiController : Controller
     {
         private readonly PlayersService _playersService;

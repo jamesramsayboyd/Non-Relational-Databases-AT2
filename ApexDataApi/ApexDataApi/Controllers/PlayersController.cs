@@ -8,7 +8,8 @@ namespace ApexDataApi.Controllers
     /// A controller for player actions, used for the Front End
     /// </summary>
     [ApiExplorerSettings(IgnoreApi = true)]
-    [Route("frontend/[controller]")]
+    //[Route("frontend/[controller]")]
+    [Route("[controller]")]
     public class PlayersController : Controller
     {
         private readonly PlayersService _playersService;

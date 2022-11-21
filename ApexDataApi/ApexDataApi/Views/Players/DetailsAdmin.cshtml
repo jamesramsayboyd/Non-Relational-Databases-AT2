@@ -7,7 +7,9 @@
 <h1>Details</h1>
 
 <div>
-    <img src="@Html.DisplayFor(model => model.Avatar)" />
+    <div class="avatarlarge">
+        <img src="@Url.Content("~/Content/Images/players/" + Model.PlayerName + ".png")" />
+    </div>
     <h1>@Html.DisplayFor(model => model.PlayerName)</h1>
     <hr />
     <dl class="row">

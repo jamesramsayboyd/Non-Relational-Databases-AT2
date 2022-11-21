@@ -17,7 +17,7 @@ namespace ApexDataApi.Controllers
     /// </summary>
     [Authorize]
     [ApiController]
-    [Route("api/Characters")]
+    [Route("Characters")]
     public class CharactersApiController : Controller
     {
         private readonly CharactersService _charactersService;

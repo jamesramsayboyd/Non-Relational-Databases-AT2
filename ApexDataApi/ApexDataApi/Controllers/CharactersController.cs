@@ -8,7 +8,8 @@ namespace ApexDataApi.Controllers
     /// A controller for character actions, used for the Front End
     /// </summary>
     [ApiExplorerSettings(IgnoreApi = true)]
-    [Route("frontend/[controller]")]
+    //[Route("frontend/[controller]")]
+    [Route("[controller]")]
     public class CharactersController : Controller
     {        
         private readonly CharactersService _charactersService;

@@ -1,31 +1,28 @@
 ﻿@model IEnumerable<ApexDataApi.Models.Player>
-@*@model ApexDataApi.Models.Player*@
 
 @{
     ViewData["Title"] = "Players";
 }
 
-<h1>Players</h1>
+<h1>Players (Admin)</h1>
 
-<p>
-    <a asp-controller="Players" asp-action="Create">Create New</a>
-    @*@Html.ActionLink("Create New", "Create", "Players")<br />*@
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PlayerName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rank)
+                Rank
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Avatar)
+                Avatar
             </th>
             <th>
+                Player
+            </th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Topranked)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -33,16 +30,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PlayerName)
+                @if (item.Topranked)
+                {
+                    <img src="@Url.Content("~/Content/Images/topranked.png")" alt="Top Ranked" />
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rank)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Avatar)
+                <div class="avatarsmall">
+                        <img src="@Url.Content("~/Content/Images/players/" + @item.Avatar)" alt="@item.PlayerName Avatar" />
+                </div>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Topranked)
+                @Html.DisplayFor(modelItem => item.PlayerName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
