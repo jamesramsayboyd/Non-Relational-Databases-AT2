@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O+KFbTumfzFgomova1K1Q25oQiMDX9XPCvK29h9uzzw=",
+  "Hash": "vvOfEjlwfk/9RULe13ehr50o0uNmdeRsmtCXmd5DAMM=",
   "Source": "ApexDataApi",
   "BasePath": "_content/ApexDataApi",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ApexDataApi\\wwwroot",
       "Source": "ApexDataApi",
-      "ContentRoot": "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\30041547\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\wwwroot\\",
       "BasePath": "_content/ApexDataApi",
       "Pattern": "**"
     }

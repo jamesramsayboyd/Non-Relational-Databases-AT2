@@ -83,14 +83,14 @@ namespace ApexDataApi
             app.UseDefaultFiles();
 
             //Adding static path to 'Content' directory for images, css
-           app.UseStaticFiles(new StaticFileOptions
-           {
-               FileProvider = new PhysicalFileProvider(
-                   Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
-               RequestPath = "/Content"
-           });
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
+                RequestPath = "/Content"
+            });
 
-           app.UseRouting();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
 

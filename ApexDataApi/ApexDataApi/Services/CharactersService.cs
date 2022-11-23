@@ -34,14 +34,6 @@ public class CharactersService
 
     #region GET
     /// <summary>
-    /// Finds a single character using the CharacterName variable
-    /// </summary>
-    /// <param name="name"></param>
-    /// <returns></returns>
-    public async Task<Character?> GetAsync(string name) =>
-        await _charactersCollection.Find(x => x.CharacterName == name).FirstOrDefaultAsync();
-
-    /// <summary>
     /// Finds a single character by ID
     /// </summary>
     /// <param name="id"></param>
@@ -49,6 +41,14 @@ public class CharactersService
     public async Task<Character?> GetAsyncId(string id) =>
         await _charactersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
+    /// <summary>
+    /// Finds a single character using the CharacterName variable
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public async Task<Character?> GetAsync(string name) =>
+        await _charactersCollection.Find(x => x.CharacterName == name).FirstOrDefaultAsync();
+    
     /// <summary>
     /// Loops through a list of all players searching for a specific character
     /// Sums the playtime of that character across all players, updates playtime variable
@@ -69,17 +69,6 @@ public class CharactersService
             }
         }
     }
-
-    // Creating a list of all character IDs
-    //public async Task<Array<string>> GetCharacterIds()
-    //{
-    //    Array<string> names;
-    //    List<Character> result = await _charactersCollection.Find(_ => true).ToListAsync();
-    //    foreach (Character character in result)
-    //    {
-
-    //    }
-    //}
 
     /// <summary>
     /// Returns a list of all characters, calculating playtime across all players. 
@@ -132,9 +121,7 @@ public class CharactersService
     public async Task CreateListAsync(string name1, string name2)
     {
         Character character1 = new Character(name1);
-        //character1.Id = name1.Substring(0, 4).ToLower();
         Character character2 = new Character(name2);
-        //character2.Id = name2.Substring(0, 4).ToLower();
         List<Character> characterList = new List<Character>() { character1, character2 };
         await _charactersCollection.InsertManyAsync(characterList);
     }

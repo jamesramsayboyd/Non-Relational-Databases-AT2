@@ -367,18 +367,18 @@
             </summary>
             <param name="apexPlayerDatabaseSettings"></param>
         </member>
-        <member name="M:ApexDataApi.Services.CharactersService.GetAsync(System.String)">
-            <summary>
-            Finds a single character using the CharacterName variable
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
         <member name="M:ApexDataApi.Services.CharactersService.GetAsyncId(System.String)">
             <summary>
             Finds a single character by ID
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.GetAsync(System.String)">
+            <summary>
+            Finds a single character using the CharacterName variable
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:ApexDataApi.Services.CharactersService.CalculatePlaytimeAsync(ApexDataApi.Models.Character)">
